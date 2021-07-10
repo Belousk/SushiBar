@@ -181,7 +181,7 @@ main{
 
 .fixed_footer {
   position: fixed;
-  bottom: 0;
+  bottom: -50px;
   width: 100%;
   transition: all .3s ease;
   background-color: #353535;
