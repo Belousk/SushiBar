@@ -72,6 +72,8 @@ main{
 }
 .logo img{
   max-width: 100px;
+  min-width: 50px;
+  width: 100%;
 }
 .social_media{
   display: flex;
@@ -82,7 +84,7 @@ main{
 .social_media i{
   font-size: 20px;
   display: block; 
-  border: 1px solid gray;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: 10px;
   padding: 4px; 
   border-radius: 7px;
@@ -92,6 +94,7 @@ main{
   padding-left: 6.5px;
   padding-bottom: 5px;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .social_media i:hover{
@@ -101,43 +104,55 @@ main{
   border-color: rgba(255,255,255, 0);
 }
 .sign_in i{
-  font-size: 30px;
+  font-size: 20px;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 20%;
 }
+
+.sign_in i:hover{
+  background-color: red;
+  color: white;
+  transition: all .8s ease;
+  border-color: rgba(255,255,255, 0);
+}
+
 .wrapper{
   max-width: 1150px;
   margin: 0 auto;
 }
-.nav{
+.panel{
   display: block;
-  border: 1px solid gray; 
   position: relative;
   background-color: white;
   min-width: 375px;
   margin: 0 auto;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); 
 }
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
   margin: 0 auto;
+  z-index: 10;
 }
-.nav ul{
+.panel ul{
   display: flex;
   margin: 0 auto;
-  width: 725px;
+  width: 100%;
+  overflow-x: scroll;
 }
-.nav ul li{ 
+.panel ul li{ 
   margin: 20px 10px;
 
 }
-.nav ul li a{
+.panel ul li a{
   color: black;
   display: block;
 }
-.nav ul li:targer{
-  border-bottom: 3px solid red;
-}
-.nav ul li a:hover{
+.panel ul li a:hover{
   color: red;
   text-decoration: underline;
 }
@@ -146,8 +161,9 @@ main{
   font-weight: bold;
   margin-left: 10px; 
 }
-.contacts{
+.contacts span,i{
   margin-bottom: 10px;
+  color: #3d3d3d;
 }
 .work_time span{
   font-size: 15px;
@@ -159,11 +175,11 @@ main{
   justify-content: space-between;
   align-items: center;
 }
-.columns{
-  display: flex;
-  flex-direction: column;
-}
 
+
+::-webkit-scrollbar {
+  width: 15px;
+}
 
 .fixed_footer ul{
   display: flex;
@@ -186,8 +202,41 @@ main{
   transition: all .3s ease;
   background-color: #353535;
 }
+/*************************************slider style*******************************************/
+.slick-track{
+  display: flex;
+}
 
-
+.slick-list{
+  
+}
+.slider .slick-arrow{
+  font-size: 0px;
+  position: absolute;
+  top: 50%;
+}
+.slider img{
+  width: 100%;
+}
+.slider .slick-dots{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -30px;
+}
+.slider .slick-dots button{
+  font-size: 0;
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+.slider .slick-active button{
+  background-color: white;
+}
+/*******************************************************************************************/
 @media screen and (max-width: 1300px){
 
 
@@ -198,4 +247,11 @@ main{
   .social_media {
       display: none;
   }
+  .logo img{
+    width: 50px;
+  }
+  .work_time{
+    display: none;
+  }
+
 }

@@ -1,7 +1,7 @@
 window.addEventListener('scroll', mySticky);
 window.addEventListener('scroll', myScroll);
 
-let navbar = document.getElementById("navbar");
+let navbar = document.getElementById("panel");
 let sticky = navbar.offsetTop;
 /******************for top menu**************/
 function mySticky() {
@@ -23,3 +23,14 @@ function myScroll(){
 	  }
 	  prevScrollpos = currentScrollPos;
 }
+
+$(document).ready(function(){
+	$('.slider').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 1800,
+  dots:true,
+  variableWidth:false
+});
+});
