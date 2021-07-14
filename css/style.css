@@ -229,20 +229,48 @@ main{
   background-color: #353535;
 }
 
-.items .item{
-}
 .items img{
-  max-width: 100%;
+  height: 160px;
 }
 .items{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 10px 40px;
 }
+
+.categories{
+  display: flex;
+  margin-left: 100px;
+}
+.category{
+  margin-left: 20px;
+}
+.category a{
+  color: #3d3d3d;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 3px;
+  border-radius: 10px;
+}
+
+footer{
+  height: 300px;
+  background-color: #353535;
+}
+
+
 .tab_block{
   display: none;
 }
 
+.popular{
+  margin-top: 20px;
+}
+
+.popular h2{
+  margin-left: 70px;
+}
 
 
 /*************************************slider style*******************************************/
