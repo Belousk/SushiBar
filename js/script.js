@@ -146,7 +146,7 @@ let sticky = navbar.offsetTop;
 document.querySelector('.cart_description').style.top = String(sticky - window.pageYOffset + 55)+'px';
 /******************for top menu**************/
 function mySticky() {
-  if (window.pageYOffset >= sticky) {
+  if (window.pageYOffset >= sticky +0) {
     navbar.classList.add("sticky")
     document.querySelector('.cart_description').style.top = 52+'px';
   } else {
