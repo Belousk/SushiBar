@@ -125,20 +125,30 @@ main{
 .cart a{
   display: flex;
   color: #3d3d3d;
-
+  transition: all 0.5s ease 0.2s; 
 }
+
+.cart #items_quantity{
+  transition: all 0.3s ease 0.2s;
+}
+
 .cart i{
-  display: none;
+  position: relative;
+  left: -2px; 
+  color: #3d3d3d;
+  opacity: 0;
+  transition: all 0.2s ease 0.2s; 
 }
 .cart{
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   margin-right: 7.75%; 
-  transition: all 0.5s ease 0.5s;
+  transition: all 0.5s ease 0.2s;
 }
-.cart a{
-  transition: all 0.5s ease 0.5s; 
+.cart:hover a{
+  color: white;
+  transition: all 0.5s ease; 
 }
 .cart_description{
   position: fixed;
@@ -165,20 +175,20 @@ main{
   font-size: 12px;
   padding-top: 1px;
   color: white;
-
+  opacity: 1;
+  transition: all 0.5s ease; 
 }
 
 .cart:hover #items_quantity{
-  display: none;
+  opacity: 0;
+  transition: all 0.1s ease; 
 }
 
 .cart:hover{
   background-color: red;
-  transition: all 0.5s ease 0;
+  transition: all 0.5s ease;
 }
-.cart:hover span{
-  color: white;
-}
+
 .cart:hover .cart_sum span{
   color: black;
 }
@@ -187,6 +197,7 @@ main{
 }
 .cart:hover .devider{
   background-color: white;
+  transition: all 0.5s ease;
 }
 
 .devider{
@@ -195,6 +206,7 @@ main{
   margin: 0 6px;
   position: relative;
   background-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease 0.3s; 
 }
 
 
