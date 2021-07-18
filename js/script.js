@@ -5,6 +5,7 @@ window.addEventListener('scroll', myScroll);
 /*let tab = ; */
 /***************************for tabs********************************/
 
+
 let tab_1 = document.getElementById('tab_1');
 document.getElementById('tab_main').display = 'block';
 let prev_tab = 'tab_11';
@@ -142,26 +143,35 @@ tab_11.onclick = function(){
 
 let navbar = document.getElementById("panel");
 let sticky = navbar.offsetTop;
+document.querySelector('.cart_description').style.top = String(sticky - window.pageYOffset + 55)+'px';
 /******************for top menu**************/
 function mySticky() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky")
+    document.querySelector('.cart_description').style.top = 52+'px';
   } else {
     navbar.classList.remove("sticky");
+    document.querySelector('.cart_description').style.top = String(sticky - window.pageYOffset + 52)+'px';
+
   }
 }
+
+
 
 /****************for bottom footer***********************/
 let prevScrollpos = window.pageYOffset;
 function myScroll(){
 	  let currentScrollPos = window.pageYOffset;
-	  if (prevScrollpos  < currentScrollPos) {
+	  if (prevScrollpos  > currentScrollPos) {
 	    document.getElementById("footer").style.bottom = "0px";
 	  } else {
 	    document.getElementById("footer").style.bottom = "-50px";
 	  }
 	  prevScrollpos = currentScrollPos;
 }
+
+
+
 
 $(document).ready(function(){
 	$('.slider').slick({
@@ -172,4 +182,32 @@ $(document).ready(function(){
   dots:true,
   variableWidth:false
 });
+ 
+	$('.popular_items').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  variableWidth:false,
+  arrows:true,
+  infinite:false,
+  waitForAnimate:false,
+  responsive: [
+  	{
+  		breakpoint: 890,
+  		settings: {
+  			slidesToShow: 3
+  		} 
+  	}, {
+  		breakpoint: 770,
+  		settings: {
+  			slidesToShow: 2
+  		} 
+  	}, {
+  		breakpoint: 450,
+  		settings: {
+  			slidesToShow: 1
+  		} 
+  	}
+  ]
 });
+});
+

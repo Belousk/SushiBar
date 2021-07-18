@@ -50,12 +50,18 @@
 				<li><a href='#' id='tab_7'>ГАРНИРЫ</a></li>				
 				<li><a href='#' id='tab_10'>НАПИТКИ</a></li>
 			</ul>
-			<div class="bascket">
+			<div class="cart">
 				<a href="#">
 					<span>КОРЗИНА</span>
 					<span class="devider"></span>
-					<span>0</span>
+					<span id="items_quantity">0</span>
+					<i class="fas fa-arrow-right"></i>
 				</a>
+				<div class="cart_description">
+					<div class="item_in_cart"></div>
+					<hr>
+					<div class="cart_sum">Сумма заказа: <span id='items_end_price'>0</span></div>
+				</div>
 			</div>  
 		</div>
 	</header>
@@ -113,76 +119,78 @@
 
 			<div class="popular">
 				<h2>ПОПУЛЯРНЫЕ ТОВАРЫ</h2>
-				<div class="items">
-					<div class="item">
-						<img src="img/rolls/roll_12.png" alt="">
-						<h3>Филадельфия классик</h3>
-						<div class="description">
-							<p>Сыр, авокадо, лосось</p>
-							<div class="price">
-								<div><span>250 гр.</span><br> <span>359&#8381;</span></div>
-								<a href="#">в корзину</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="item">
-						<img src="img/rolls/roll_13.png" alt="">
-						<h3>Калифорния</h3>
-						<div class="description">
-							<p>Краб, авокадо, огурец, тобито, маонез</p>
-							<div class="price">
-								<div><span>250 гр.</span><br> <span>249&#8381;</span></div>
-								<a href="#">в корзину</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="item">
-						<img src="img/rolls/roll_11.png" alt="">
-						<h3>Горячий с угрем</h3>
-						<div class="description">
-							<p>Нори, угорь, сливочный сыр, огурец, темпура</p>
-							<div class="price">
-								<div><span>250 гр.</span><br> <span>279&#8381;</span></div>
-								<a href="#">в корзину</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="item">
-						<img src="img/rolls/roll_14.png" alt="">
-						<h3>Пантера</h3>
-						<div class="description">
-							<p>Краб, огурец, маонез, тобихо черный</p>
-							<div class="price">
-								<div><span>240 гр.</span><br> <span>229&#8381;</span></div>
-								<a href="#">в корзину</a>
+				<div class="wrapper">
+					<div class="popular_items">
+						<div class="popular_item item">
+							<img src="img/rolls/roll_12.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>359&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
 							</div>
 						</div>
 
-					</div><div class="item">
-						<img src="img/rolls/roll_10.png" alt="">
-						<h3>Томаго</h3>
-						<div class="description">
-							<p>Сыр, угорь, омлет, кунжут</p>
-							<div class="price">
-								<div><span>250 гр.</span><br> <span>259&#8381;</span></div>
-								<a href="#">в корзину</a>
+						<div class="item popular_item">
+							<img src="img/rolls/roll_13.png" alt="">
+							<h3>Калифорния</h3>
+							<div class="description">
+								<p>Краб, авокадо, огурец, тобито, маонез</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>249&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="item">
-						<img src="img/sets/set_3.png" alt="">
-						<h3>Сет <q>Оогоо</q></h3>
-						<div class="description">
-							<p>Канада, Калифорния, Ролл с креветкой, Филадельфия с огурцом</p>
-							<div class="price">
-								<div><span>850 гр.</span><br> <span>799&#8381;</span></div>
-								<a href="#">в корзину</a>
+						<div class="item popular_item">
+							<img src="img/rolls/roll_11.png" alt="">
+							<h3>Горячий с угрем</h3>
+							<div class="description">
+								<p>Нори, угорь, сливочный сыр, огурец, темпура</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>279&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
 							</div>
-						</div>				
+						</div>
+
+						<div class="item popular_item">
+							<img src="img/rolls/roll_14.png" alt="">
+							<h3>Пантера</h3>
+							<div class="description">
+								<p>Краб, огурец, маонез, тобихо черный</p>
+								<div class="price">
+									<div><span>240 гр.</span><br> <span>229&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+
+						</div><div class="item popular_item">
+							<img src="img/rolls/roll_10.png" alt="">
+							<h3>Томаго</h3>
+							<div class="description">
+								<p>Сыр, угорь, омлет, кунжут</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>259&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="popular_item item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Сет <q>Оогоо</q></h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветкой, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>850 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>				
+						</div>
 					</div>
 				</div>
 			</div>
@@ -213,20 +221,13 @@
 
 
 
-
-
-
-
-
-
-
 		<div class="wrapper">
 			<div class="tabs_block">
 				<div class="tab_block" id="tab_sets">
 					<h2>Сеты</h2>
 					<div class="items">
 						<div class="item">
-							<img src="img/sets/set_1.jpeg" alt="">
+							<img src="img/sets/set_3.png" alt="">
 							<h3>Для двоих</h3>
 							<div class="description">
 								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
@@ -237,7 +238,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<img src="img/sets/set_2.jpeg" alt="">
+							<img src="img/sets/set_3.png" alt="">
 							<h3>Раз на раз</h3>
 							<div class="description">
 								<p>Сливочная калифорния, Пантера, Татмикс</p>
@@ -259,7 +260,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<img src="img/sets/set_4.JPG" alt="">
+							<img src="img/sets/set_3.png" alt="">
 							<h3>Филадельфия классик</h3>
 							<div class="description">
 								<p>Сыр, авокадо, лосось</p>
@@ -270,7 +271,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<img src="img/sets/set_5.jpg" alt="">
+							<img src="img/sets/set_3.png" alt="">
 							<h3>Всем хватит</h3>
 							<div class="description">
 								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
@@ -289,44 +290,967 @@
 
 
 				<div class="tab_block" id="tab_rolls">
-					<p>РОЛЛЫЫЫЫЫЫЫ</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cum quis corporis rem molestias. Assumenda dolore quos animi corporis? Ex.</p>
+					<h2>Роллы</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+
+
+
+
+
+
+
+
+
 				<div class="tab_block" id="tab_sushi">
-					<p>СУШИ</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cum quis corporis rem molestias. Assumenda dolore quos animi corporis? Ex.</p>
+					<h2>Суши</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+
+
+
+
+
+
+
+
 				<div class="tab_block" id="tab_pizza">
-					<p>ПИЦЦА</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cum quis corporis rem molestias. Assumenda dolore quos animi corporis? Ex.</p>
+					<h2>Пицца</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+
+
+
+
 				<div class="tab_block" id="tab_burgers">
-					<p>БУРГЕРЫ</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cum quis corporis rem molestias. Assumenda dolore quos animi corporis? Ex.</p>
+					<h2>Бургеры</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+
+
+
+
 				<div class="tab_block" id="tab_woks">
-					<p>ВОКИ</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cum quis corporis rem molestias. Assumenda dolore quos animi corporis? Ex.</p>
+					<h2>Воки</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+
+
+
+
+
 				<div class="tab_block" id="tab_garnirs">
-					<p>ГАРНИРЫ</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cum quis corporis rem molestias. Assumenda dolore quos animi corporis? Ex.</p>
+					<h2>Гарниры</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+
+
+
+
 				<div class="tab_block" id="tab_soups">
-					<p>СУПЫ</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cum quis corporis rem molestias. Assumenda dolore quos animi corporis? Ex.</p>
+					<h2>Супы</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+
+
+
 				<div class="tab_block" id="tab_salats">
-					<p>САЛАТЫ</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cum quis corporis rem molestias. Assumenda dolore quos animi corporis? Ex.</p>
+					<h2>Пицца</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Филадельфия классик</h3>
+							<div class="description">
+								<p>Сыр, авокадо, лосось</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Всем хватит</h3>
+							<div class="description">
+								<p>Маями, Пантера, Филадельфия классик, Канда чиз, Горячий с курицей,Тайка, Сливочная калифорния, Эби маки, Запеченная с креветкой </p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>2199&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+
+
+
+
+
 				<div class="tab_block" id="tab_drinks">
-					<p>НАПИТКИ</p>
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit delectus sit iste repellat autem reiciendis, ad magnam perferendis explicabo incidunt, est distinctio culpa, quia voluptatibus necessitatibus pariatur fugit. Corrupti hic, quaerat cum nihil nisi vero, neque veniam tempora necessitatibus optio quae, ab omnis quidem facilis illo debitis nam, cumque consectetur expedita quos. Voluptates quos autem modi nesciunt veniam placeat optio quas dolore quod, dicta, et neque dolores praesentium possimus. Placeat exercitationem vel quo iure rerum modi, sapiente ipsam laudantium fugit expedita nihil consectetur, laborum beatae nam harum quam omnis est. Soluta qui adipisci dolore autem tempore provident, fugit et dolorum.</p>
+					<h2>Напитки</h2>
+					<div class="items">
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Для двоих</h3>
+							<div class="description">
+								<p>Филадельфия классик, Премиум, Ролл с огурцом, Суши с лососем</p>
+								<div class="price">
+									<div><span>800 гр.</span><br> <span>599&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Раз на раз</h3>
+							<div class="description">
+								<p>Сливочная калифорния, Пантера, Татмикс</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>619&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="img/sets/set_3.png" alt="">
+							<h3>Оогоо</h3>
+							<div class="description">
+								<p>Канада, Калифорния, Ролл с креветко, Филадельфия с огурцом</p>
+								<div class="price">
+									<div><span>250 гр.</span><br> <span>799&#8381;</span></div>
+									<a href="#">в корзину</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</main>
+
+
+
+
+
+
 	<footer>
 		<div class="footer"></div>
 		<div class="fixed_footer" id='footer'>
