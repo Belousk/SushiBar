@@ -556,7 +556,6 @@ footer{
     display: block;
     width: 100px;
   }
-
 }
 
 @media screen and (max-width: 460px){
@@ -581,4 +580,8 @@ footer{
   .row{
     justify-content: center;
   }
+  .panel{
+    top: 51px;
+  }
+
 }
