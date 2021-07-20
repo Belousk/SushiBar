@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   border: 0;
+  font-family: 'Arial' sans-serif;
 }
 
 *, *:before, *:after {
@@ -392,17 +393,17 @@ footer{
 }
 
 .item{
-  min-height: 300px;
   border-radius: 20px;
   padding: 0;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
 }
 
 .item:hover{
-  transform: translateY(-10px);
-  box-shadow: 0 0 20px 0 gray;
-  transition: all 0.7s ease;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
 }
 .item h3{
   display: block;
@@ -413,7 +414,7 @@ footer{
   flex-direction: column;
   justify-content: space-between;
   margin: 10px;
-  height: 180px;
+  height: 160px;
 }
 
 .description p{
