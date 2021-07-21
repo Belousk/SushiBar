@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="img/Favicon.ico">
+	<script defer type="text/javascript" src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+	<script defer src="js/slick.min.js"></script>
+	<script defer src="js/script.js"></script>
+	<script defer>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></body>
+	<script defer src="https://kit.fontawesome.com/38a553fbf6.js" crossorigin="anonymous"></script>
 	<title>Суши Хан</title>
 </head>
 <body>
 	<header>
-		<div class="wrapper">
+		<div class="wrapper wrapper_menu">
 			<div class="rows">
 				<div class="logo">
 					<a href="#tab_main" id="tab_11">
@@ -116,10 +124,9 @@
 
 
 
-
-			<div class="popular">
-				<h2>ПОПУЛЯРНЫЕ ТОВАРЫ</h2>
-				<div class="wrapper">
+			<div class="wrapper_popular">
+				<div class="popular">
+					<h2>ПОПУЛЯРНЫЕ ТОВАРЫ</h2>
 					<div class="popular_items">
 						<div class="popular_item item">
 							<img src="img/популярные/филадельфия классик.png" alt="">
@@ -194,8 +201,19 @@
 					</div>
 				</div>
 			</div>
-
-		
+			<div class="wrapper">
+				<div class="promotion">
+					<h2>Акции</h2>
+					<div class="grid">
+						<a href="#"><img src="img/banners/banner1.jpg" alt=""></a>
+						<a href="#"><img src="img/banners/banner2.jpg" alt=""></a>
+						<a href="#"><img src="img/banners/banner3.jpg" alt=""></a>
+						<a href="#"><img src="img/banners/banner4.jpg" alt=""></a>
+						<a href="#"><img src="img/banners/banner5.jpg" alt=""></a>
+						<a href="#"><img src="img/banners/banner6.jpg" alt=""></a>
+					</div>
+				</div>
+			</div>
 		</div>
 
 
@@ -302,6 +320,14 @@
 
 				<div class="tab_block" id="tab_rolls">
 					<h2>Роллы</h2>
+
+					<div class="tab_type">
+						<ul>
+							<li><a id="tab_cold" href="#">Холодные</a></li>
+							<li><a id="tab_hot" href="#">Горячие</a></li>
+							<li><a id="tab_baked" href="#">Запеченные</a></li>
+						</ul>
+					</div>
 					<div class="items">
 						<!--/*****************************************ХОЛОДНЫЕ РОЛЛЫ***********************************/-->
 						<div class ="item roll_cold">
@@ -545,7 +571,7 @@
 						</div>
 
 						<div class ="item roll_cold">
-							<img src = "img/роллы/аризона.jpg" alt = "">
+							<img src = "img/роллы/аризоНа_2.jpg" alt = "">
 							<h3>Аризона</h3>
 							<div class ="description">
 								<p>Краб, огурец, тобико, сыр, кунжут</p>
@@ -966,7 +992,7 @@
 						</div>
 
 						<!--/*****************************************ЗАПЕЧЕННЫЕ РОЛЛЫ***********************************/-->
-						<div class ="item roll_hot">
+						<div class ="item roll_baked">
 							<img src = "img/роллы/запеченный с лососем.jpg" alt = "">
 							<h3>Запеченный с лососем</h3>
 							<div class ="description">
@@ -978,7 +1004,7 @@
 							</div>
 						</div>
 
-						<div class ="item roll_hot">
+						<div class ="item roll_baked">
 							<img src = "img/роллы/запеченный с креветками.jpg" alt = "">
 							<h3>Запеченный с креветками</h3>
 							<div class ="description">
@@ -990,7 +1016,7 @@
 							</div>
 						</div>
 
-						<div class ="item roll_hot">
+						<div class ="item roll_baked">
 							<img src = "img/роллы/запеченный с угрем.jpg" alt = "">
 							<h3>Запеченный с угрем</h3>
 							<div class ="description">
@@ -1002,7 +1028,7 @@
 							</div>
 						</div>
 
-						<div class ="item roll_hot">
+						<div class ="item roll_baked">
 							<img src = "img/роллы/филадельфия запеченная.jpg" alt = "">
 							<h3>Филадельфия запеченная</h3>
 							<div class ="description">
@@ -1888,10 +1914,6 @@
 			</div>
 		</div>
 	</footer>
-	<script type="text/javascript" src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-	<script src="js/slick.min.js"></script>
-	<script src="js/script.js"></script>
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></body>
-	<script src="https://kit.fontawesome.com/38a553fbf6.js" crossorigin="anonymous"></script>
+	
 </body>
 </html>

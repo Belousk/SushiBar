@@ -5,7 +5,6 @@ window.addEventListener('scroll', myScroll);
 /*let tab = ; */
 /***************************for tabs********************************/
 
-
 let tab_1 = document.getElementById('tab_1');
 document.getElementById('tab_main').display = 'block';
 let prev_tab = 'tab_11';
@@ -22,13 +21,16 @@ tab_1.onclick = function(){
 
 let tab_2 = document.getElementById('tab_2');
 tab_2.onclick = function(){
+	document.getElementById(prev_type).style.borderBottom = "0px solid red";
 	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
 	tab_2.style.borderBottom = "3px solid red";
 	prev_tab = 'tab_2';
 	document.getElementById(prev_block).style.display = 'none';
 	document.getElementById('tab_rolls').style.display = 'block';
 	prev_block = 'tab_rolls';
-
+	for (elem in document.querySelectorAll('#tab_rolls .item')){
+		elem.style.display = 'block';
+	}
 };
 
 let tab_3 = document.getElementById('tab_3');
@@ -136,6 +138,53 @@ tab_11.onclick = function(){
 
 
 
+
+let prev_type = 'tab_cold';
+
+let tab_cold = document.getElementById('tab_cold');
+tab_cold.onclick = function(){
+	document.getElementById(prev_type).style.borderBottom = "0px solid red";
+	tab_cold.style.borderBottom = "3px solid red";
+	prev_type = 'tab_cold';
+	for (elem of document.querySelectorAll('#tab_rolls .items .item')){
+		if (elem.classList.contains('roll_cold')){
+			elem.style.display = 'block';
+		}else{
+			elem.style.display = 'none';
+		}
+	}
+};
+
+let tab_hot = document.getElementById('tab_hot');
+tab_hot.onclick = function(){
+	document.getElementById(prev_type).style.borderBottom = "0px solid red";
+	tab_hot.style.borderBottom = "3px solid red";
+	prev_type = 'tab_hot';
+	for (elem of document.querySelectorAll('#tab_rolls .items .item')){
+		console.log(elem)
+		if (elem.classList.contains('roll_hot')){
+			elem.style.display = 'block';
+		}else{
+			elem.style.display = 'none';
+		}
+	}
+};
+
+let tab_baked = document.getElementById('tab_baked');
+
+tab_baked.onclick = function(){
+	document.getElementById(prev_type).style.borderBottom = "0px solid red";
+	tab_baked.style.borderBottom = "3px solid red";
+	prev_type = 'tab_baked';
+	for (let elem of document.querySelectorAll('#tab_rolls .items .item')){
+		if (elem.classList.contains('roll_baked')){
+			elem.style.display = 'block';
+		}else{
+			elem.style.display = 'none';
+		}
+	}
+};
+
 /*******************************************************************/
 
 
@@ -192,17 +241,17 @@ $(document).ready(function(){
   waitForAnimate:false,
   responsive: [
   	{
-  		breakpoint: 890,
+  		breakpoint: 1200,
   		settings: {
   			slidesToShow: 3
   		} 
   	}, {
-  		breakpoint: 770,
+  		breakpoint: 900,
   		settings: {
   			slidesToShow: 2
   		} 
   	}, {
-  		breakpoint: 450,
+  		breakpoint: 600,
   		settings: {
   			slidesToShow: 1
   		} 
