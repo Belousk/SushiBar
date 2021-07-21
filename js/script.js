@@ -1,5 +1,35 @@
+for (img of document.querySelectorAll('img')) {
+	console.log(img);
+	let a = document.createAttribute("data-src");
+	a.value = img.getAttribute('src');
+	img.setAttributeNode(a);
+	img.src = '';
+	img.classList.add('lazy');
+}
 window.addEventListener('scroll', mySticky);
 window.addEventListener('scroll', myScroll);
+var lazyLoadInstance = new LazyLoad({
+  // Your custom settings go here
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*let tab = ; */
