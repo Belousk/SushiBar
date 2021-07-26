@@ -6,17 +6,161 @@ var lazyLoadInstance = new LazyLoad({
 });
 
 
+/************************************CART****************************************************/
+let cart = {}
+
+document.onclick = function(e){
+	if (e.target.classList.contains('add_to_cart')){
+		plusFunction(e.target.dataset.id);
+	}
+	if (e.target.classList.contains('minus_from_cart')){
+		minusFunction(e.target.dataset.id);	
+	} 
+	if(e.target.classList.contains('delete_from_cart')){
+		deleteFunction(e.target.dataset.id);
+	}
+	document.getElementById('items_quantity').innerHTML = Object.keys(cart).length;
+	e.preventDefault();
+
+}
+
+///ADDING ITEM TO CART
+let plusFunction = function(id){
+	if (!(id in cart)){
+		cart[id] = 1;
+	}else{
+		cart[id]++;
+	}
+	renderCart();
+}
+////DRAWING CART
+let renderCart =function(){
+	console.log(cart);
+}
+
+////MINUSING ITEM FROM CART
+let minusFunction = function(id){
+	if (cart[id] - 1 === 0){
+		deleteFunction(id);
+		return true;
+	}
+	cart[id]--;
+	renderCart();
+}
+////DELETING ITME FROM CART
+let deleteFunction = function(id){
+	delete cart[id];
+}
+
+///
+
+
+
+/*****************************************************************************************************/
+
+
+/**********************************Popup work*************************************************/
+
+
+const popupLinks = document.querySelectorAll('.popup_link');
+const body = document.querySelector('body');
+const lockPadding = document.querySelectorAll(".lock-padding");
+
+let unlock = true;
+
+let timeout = 800;
+
+if (popupLinks.length > 0){
+	for (let index = 0; index < popupLinks.length; index++) {
+		let popupLink = popupLinks[index];
+		popupLink.addEventListener("click", function(e){
+			const popupName = popupLink.getAttribute('href').replace("#", '');
+			const curentPopup = document.getElementById(popupName);
+			popupOpen(curentPopup);
+			e.preventDefault();
+		});
+	}
+}
+
+
+
+let popupCloseIcon = document.querySelectorAll(".close-popup");
+if (popupCloseIcon.length > 0){
+	for (var index = 0; index < popupCloseIcon.length; index++) {
+		const el = popupCloseIcon[index];
+		el.addEventListener('click', function(e){
+			popupClose(el.closest('.popup'))
+			e.preventDefault();
+		});
+	}
+}
+
+
+
+function popupOpen(curentPopup){
+	if(curentPopup && unlock){
+		const popupActive = document.querySelector('.popup.open');
+		if(popupActive){
+			popupClose(popupActive, false);
+		}else{
+			bodyLock();
+		}
+		curentPopup.classList.add('open');
+		curentPopup.addEventListener('click', function (e){
+			if(!e.target.closest('.popup_content')){
+				popupClose(e.target.closest('.popup'))
+			}
+		});
+	}
+}
+
+function bodyLock(){
+	body.classList.add('lock');
+
+	unlock = false
+	setTimeout(function(){
+		unlock = true;
+	},timeout);
+}
+
+
+function popupClose(popupActive, doUnlock = true){
+	if (unlock){
+		popupActive.classList.remove('open');
+		if(doUnlock){
+			bodyUnlock();
+		}
+	}
+}
+
+
+function bodyUnlock(){
+	setTimeout(function() {
+		body.classList.remove('lock');
+	}, timeout);
+
+	unlock = false;
+	setTimeout(function() {
+		unlock = true;
+	}, timeout);
+}
 
 
 
 
 
+document.addEventListener('keydown', function (e){
+	if (e.which === 27){
+		const popupActive = document.querySelector('.popup.open');
+		popupClose(popupActive);
+	}
+});
 
 
 
 
 
-
+/***********************************************************************************/
 
 
 
@@ -153,14 +297,13 @@ let tab_11 = document.getElementById('tab_11');
 tab_11.onclick = function(){
 	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
 	tab_11.style.borderBottom = "0px solid red";
-	prev_tab = 'tab_10';
+	prev_tab = 'tab_11';
 	document.getElementById(prev_block).style.display = 'none';
 	document.getElementById('tab_main').style.display = 'block';
 	prev_block = "tab_main";
 };
 
-
-
+/************************************************************************************/
 
 let prev_type = 'tab_cold';
 
@@ -274,7 +417,7 @@ $(document).ready(function(){
   			slidesToShow: 2
   		} 
   	}, {
-  		breakpoint: 600,
+  		breakpoint: 680,
   		settings: {
   			slidesToShow: 1
   		} 
