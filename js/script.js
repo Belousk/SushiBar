@@ -12,30 +12,88 @@ let cart = {}
 document.onclick = function(e){
 	if (e.target.classList.contains('add_to_cart')){
 		plusFunction(e.target.dataset.id);
+		e.preventDefault();
 	}
+	if (e.target.classList.contains('add_to_cart_small')){
+		plusFunction(e.target.dataset.idk);
+		e.preventDefault();
+	}
+	
 	if (e.target.classList.contains('minus_from_cart')){
-		minusFunction(e.target.dataset.id);	
+		minusFunction(e.target.dataset.idk);	
+		e.preventDefault();
 	} 
 	if(e.target.classList.contains('delete_from_cart')){
 		deleteFunction(e.target.dataset.id);
+		e.preventDefault();
 	}
+	
 	document.getElementById('items_quantity').innerHTML = Object.keys(cart).length;
-	e.preventDefault();
+	items_sum = 0;
+	for (let key of Object.keys(cart)){
+		let item_price = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
+		let item_count = cart[key];
+		items_sum += item_price * item_count;	
+	}
+
+	//let item_price = document.querySelector('[data-id="'+e.target.dataset.id+'"]').closest('.price').querySelector('.item_price')
+	document.querySelector('#items_end_price').innerHTML = items_sum + '₽';
+	
+
+	
+
 
 }
 
+console.log();
 ///ADDING ITEM TO CART
 let plusFunction = function(id){
 	if (!(id in cart)){
 		cart[id] = 1;
+
 	}else{
-		cart[id]++;
+		if (cart[id] + 1 == 50){
+			cart[id]++;
+			console.log('Вы достигли максимального количества продукта');
+		}else if (cart[id]==50){
+			console.log('Вы достигли максимального количества продукта');
+		}else{
+			cart[id]++;
+		}
 	}
 	renderCart();
 }
 ////DRAWING CART
-let renderCart =function(){
-	console.log(cart);
+let renderCart = function(){
+	let render = '';
+	
+	for (let key of Object.keys(cart)){
+		let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').src;
+		let productName = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('h3').innerHTML;
+		let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
+		render+=`<li class="cart-content__item">
+					<article class="cart-content__product cart-product">
+						<img src="${productImg}" alt="" class="cart-product__img">
+						<div class="cart-product__text">
+							<h3 class="cart-product__title">${productName}</h3>
+							<div class="adjustment">
+								<div class="plus">
+									<a href="#" class="add_to_cart_small" data-idk="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
+								</div>
+								<div class="product_quantity">
+									${cart[key]}
+								</div>
+								<div class="minus">
+									<a href="#" class="minus_from_cart"  data-idk="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
+								</div>
+							</div>
+						</div>
+						<span class="cart-product__price">${productPrice}₽</span>
+						<button class="cart-product__delete" aria-label="Удалить товар"></button>
+					</article>
+				</li>\n`
+	}
+	document.querySelector('.cart-content__list').innerHTML = render;
 }
 
 ////MINUSING ITEM FROM CART
@@ -50,6 +108,7 @@ let minusFunction = function(id){
 ////DELETING ITME FROM CART
 let deleteFunction = function(id){
 	delete cart[id];
+	renderCart();
 }
 
 ///
@@ -108,7 +167,7 @@ function popupOpen(curentPopup){
 		curentPopup.classList.add('open');
 		curentPopup.addEventListener('click', function (e){
 			if(!e.target.closest('.popup_content')){
-				popupClose(e.target.closest('.popup'))
+				popupClose(e.target.closest('.popup'));
 			}
 		});
 	}
@@ -169,139 +228,33 @@ document.addEventListener('keydown', function (e){
 
 
 
-/*let tab = ; */
+
+
+
+
+
+
+
 /***************************for tabs********************************/
 
-let tab_1 = document.getElementById('tab_1');
-document.getElementById('tab_main').display = 'block';
-let prev_tab = 'tab_11';
-let prev_block = 'tab_main';
-tab_1.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_1.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_1';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_sets').style.display = 'block';
-	prev_block = 'tab_sets';
+let tabs = document.querySelectorAll('.tabs');
 
-};
-
-let tab_2 = document.getElementById('tab_2');
-tab_2.onclick = function(){
-	document.getElementById(prev_type).style.borderBottom = "0px solid red";
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_2.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_2';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_rolls').style.display = 'block';
-	prev_block = 'tab_rolls';
-	for (elem in document.querySelectorAll('#tab_rolls .item')){
-		elem.style.display = 'block';
+for (let tab of tabs){
+	tab.onclick = function(e){
+		if (tab.id === 'tab_main'){
+			document.getElementById(document.querySelector('.block').classList[1]).style.borderBottom = "0px solid red";
+			tab.style.borderBottom = "0px solid red";
+			document.querySelector('.block').classList.remove('block');
+			document.querySelector('.tab_main').classList.add('block');
+		}else{
+			document.getElementById(document.querySelector('.block').classList[1]).style.borderBottom = "0px solid red";
+			tab.style.borderBottom = "3px solid red";
+			document.querySelector('.block').classList.remove('block');
+			document.querySelector(`.${tab.id}`).classList.add('block');
+		}
 	}
-};
+}
 
-let tab_3 = document.getElementById('tab_3');
-tab_3.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_3.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_3';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_sushi').style.display = 'block';
-	prev_block = 'tab_sushi';
-
-};
-
-let tab_4 = document.getElementById('tab_4');
-tab_4.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_4.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_4';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_pizza').style.display = 'block';
-	prev_block = 'tab_pizza';
-
-};
-
-let tab_5 = document.getElementById('tab_5');
-tab_5.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_5.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_5';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_burgers').style.display = 'block';
-	prev_block = 'tab_burgers';
-
-};
-
-
-let tab_6 = document.getElementById('tab_6');
-tab_6.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_6.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_6';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_woks').style.display = 'block';
-	prev_block = 'tab_woks';
-
-};
-
-
-let tab_7 = document.getElementById('tab_7');
-tab_7.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_7.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_7';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_garnirs').style.display = 'block';
-	prev_block = 'tab_garnirs';
-
-};
-
-
-let tab_8 = document.getElementById('tab_8');
-tab_8.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_8.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_8';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_soups').style.display = 'block';
-	prev_block = 'tab_soups';
-
-};
-
-
-let tab_9 = document.getElementById('tab_9');
-tab_9.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_9.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_9';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_salats').style.display = 'block';
-	prev_block = 'tab_salats';
-
-};
-
-
-let tab_10 = document.getElementById('tab_10');
-tab_10.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_10.style.borderBottom = "3px solid red";
-	prev_tab = 'tab_10';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_drinks').style.display = 'block';
-	prev_block = 'tab_drinks';
-
-};
-
-let tab_11 = document.getElementById('tab_11');
-tab_11.onclick = function(){
-	document.getElementById(prev_tab).style.borderBottom = "0px solid red";
-	tab_11.style.borderBottom = "0px solid red";
-	prev_tab = 'tab_11';
-	document.getElementById(prev_block).style.display = 'none';
-	document.getElementById('tab_main').style.display = 'block';
-	prev_block = "tab_main";
-};
 
 /************************************************************************************/
 
@@ -312,7 +265,7 @@ tab_cold.onclick = function(){
 	document.getElementById(prev_type).style.borderBottom = "0px solid red";
 	tab_cold.style.borderBottom = "3px solid red";
 	prev_type = 'tab_cold';
-	for (elem of document.querySelectorAll('#tab_rolls .items .item')){
+	for (elem of document.querySelectorAll('.tab_rolls .items .item')){
 		if (elem.classList.contains('roll_cold')){
 			elem.style.display = 'block';
 		}else{
@@ -326,7 +279,7 @@ tab_hot.onclick = function(){
 	document.getElementById(prev_type).style.borderBottom = "0px solid red";
 	tab_hot.style.borderBottom = "3px solid red";
 	prev_type = 'tab_hot';
-	for (elem of document.querySelectorAll('#tab_rolls .items .item')){
+	for (elem of document.querySelectorAll('.tab_rolls .items .item')){
 		console.log(elem)
 		if (elem.classList.contains('roll_hot')){
 			elem.style.display = 'block';
@@ -342,7 +295,7 @@ tab_baked.onclick = function(){
 	document.getElementById(prev_type).style.borderBottom = "0px solid red";
 	tab_baked.style.borderBottom = "3px solid red";
 	prev_type = 'tab_baked';
-	for (let elem of document.querySelectorAll('#tab_rolls .items .item')){
+	for (let elem of document.querySelectorAll('.tab_rolls .items .item')){
 		if (elem.classList.contains('roll_baked')){
 			elem.style.display = 'block';
 		}else{
@@ -352,6 +305,34 @@ tab_baked.onclick = function(){
 };
 
 /*******************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -371,9 +352,40 @@ function mySticky() {
   }
 }
 
+/*********************************************************************************************************/
 
 
-/****************for bottom footer***********************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************for bottom footer**************************************/
 let prevScrollpos = window.pageYOffset;
 function myScroll(){
 	  let currentScrollPos = window.pageYOffset;
@@ -388,41 +400,67 @@ function myScroll(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*************************************siders************************************************************/
+
+
 $(document).ready(function(){
 	$('.slider').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 1800,
-  dots:true,
-  variableWidth:false
-});
+	  	slidesToShow: 1,
+	  	slidesToScroll: 1,
+	  	autoplay: true,
+	  	autoplaySpeed: 1800,
+	  	dots:true,
+		variableWidth:false
+	});
  
 	$('.popular_items').slick({
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  variableWidth:false,
-  arrows:true,
-  infinite:false,
-  waitForAnimate:false,
-  responsive: [
-  	{
-  		breakpoint: 1200,
-  		settings: {
-  			slidesToShow: 3
-  		} 
-  	}, {
-  		breakpoint: 900,
-  		settings: {
-  			slidesToShow: 2
-  		} 
-  	}, {
-  		breakpoint: 680,
-  		settings: {
-  			slidesToShow: 1
-  		} 
-  	}
-  ]
-});
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		variableWidth:false,
+		arrows:true,
+		infinite:false,
+		waitForAnimate:false,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 3
+				} 
+			}, {
+				breakpoint: 900,
+				settings: {
+					slidesToShow: 2
+				} 
+			}, {
+				breakpoint: 680,
+				settings: {
+					slidesToShow: 1
+				} 
+			}
+		]
+	});
 });
 

@@ -158,13 +158,14 @@ main{
 .cart_description{
   position: fixed;
   right: 80px;
-  background-color: white;
-  padding: 40px; 
+  background-color: white; 
   transform: translateY(40px);
   z-index: 3;
   visibility: hidden;
   opacity: 0;
+  padding: 10px;
   transition: all 0.5s ease 0.5s;
+  border-radius: 10px;
 }
 .cart:hover .cart_description{
   z-index: 3;
@@ -214,7 +215,61 @@ main{
   transition: all 0.5s ease 0.3s; 
 }
 
+.cart_sum{
+  text-align: center;
+  padding: 20px 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
 
+
+.cart-content__list {
+  max-height: 280px;
+  margin-left: 0;
+  padding: 0;
+  overflow: scroll;
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  padding-right: 13px;
+  transition: background-color 0.3s;
+}
+
+.cart-product__title{
+  margin-bottom: 20px;
+}
+.cart-product__price{
+  margin-left: 10px;
+  position: relative;
+  right: 0;
+}
+.cart-product__img {
+  margin-right: 20px;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+.cart-product__text {
+  width: 170px;
+}
+.adjustment{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.adjustment img{
+  width: 10px;
+  z-index: -1;
+}
+.adjustment a{
+  padding: 10px;
+  z-index: 10;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 /**********************************************************************/
 .sticky {
   position: fixed;
@@ -222,7 +277,7 @@ main{
   width: 100%;
   margin: 0 auto;
 }
-.panel ul{
+.panel> ul{
   display: flex;
   margin: 0 auto;
   width: 100%;
@@ -231,15 +286,15 @@ main{
   margin-left: 20%;
   margin-right: 10px;
 }
-.panel ul li{ 
+.panel > ul li{ 
   margin: 0px 10px;
 }
-.panel ul li a{
+.panel > ul li a{
   color: black;
   display: block;
   padding: 17px 0;
 }
-.panel ul li a:hover{
+.panel > ul li a:hover{
   color: red;
   text-decoration: underline;
 }
@@ -425,6 +480,7 @@ footer{
 .tab_block{
   display: none;
 }
+
 .tab_type {
   margin: 10px;
 }
@@ -438,7 +494,9 @@ footer{
   display: block;
   padding: 20px 0;
 }
-
+.tab_block.block{
+  display: block;
+}
 .tab_type ul li{
   display: block;
   margin-right: 10px; 
@@ -651,7 +709,7 @@ td{
 }
 
 @media screen and (max-width: 1150px){
-  .panel ul{
+  .panel > ul{
     margin-left: 15%;
   }
   .items{
@@ -663,7 +721,7 @@ td{
 
 
 @media screen and (max-width: 890px){
-  .panel ul{
+  .panel > ul{
     margin: 0 10%;
   }
   .social_media {
@@ -714,7 +772,7 @@ td{
 }
 
 @media screen and (max-width: 690px){
-  .panel ul{
+  .panel > ul{
     margin-left: 5%;
   }
   .popular{}

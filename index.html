@@ -22,7 +22,7 @@
 		<div class="wrapper wrapper_menu">
 			<div class="rows">
 				<div class="logo">
-					<a href="#tab_main" id="tab_11">
+					<a href="#" class="tabs" id="tab_main">
 						<img src="img/Favicon.PNG" alt=""> 
 					</a>
 				</div>
@@ -53,27 +53,50 @@
 		</div>
 		<div class="panel" id='panel'>
 			<ul>
-				<li><a href='#' id='tab_1'>СЕТЫ</a></li>
-				<li><a href='#' id='tab_2'>РОЛЛЫ</a></li>
-				<li><a href='#' id='tab_3'>СУШИ</a></li>
-				<li><a href='#' id='tab_4'>ПИЦЦА</a></li>
-				<li><a href='#' id='tab_9'>САЛАТЫ</a></li>
-				<li><a href='#' id='tab_5'>БУРГЕРЫ</a></li>
-				<li><a href='#' id='tab_6'>ВОКИ</a></li>
-				<li><a href='#' id='tab_8'>СУПЫ</a></li>
-				<li><a href='#' id='tab_7'>ГАРНИРЫ</a></li>				
-				<li><a href='#' id='tab_10'>НАПИТКИ</a></li>
+				<li><a href='#' class="tabs" id='tab_sets'>СЕТЫ</a></li>
+				<li><a href='#' class="tabs" id='tab_rolls'>РОЛЛЫ</a></li>
+				<li><a href='#' class="tabs" id='tab_sushi'>СУШИ</a></li>
+				<li><a href='#' class="tabs" id='tab_pizza'>ПИЦЦА</a></li>
+				<li><a href='#' class="tabs" id='tab_salats'>САЛАТЫ</a></li>
+				<li><a href='#' class="tabs" id='tab_burgers'>БУРГЕРЫ</a></li>
+				<li><a href='#' class="tabs" id='tab_woks'>ВОКИ</a></li>
+				<li><a href='#' class="tabs" id='tab_soups'>СУПЫ</a></li>
+				<li><a href='#' class="tabs" id='tab_garnirs'>ГАРНИРЫ</a></li>				
+				<li><a href='#' class="tabs" id='tab_drinks'>НАПИТКИ</a></li>
 			</ul>
 			<div class="cart">
-				<a href="#">
+				<a href="cart.html">
 					<span>КОРЗИНА</span>
 					<span class="devider"></span>
-					<span id="items_quantity"></span>
+					<span id="items_quantity">0</span>
 					<i class="fas fa-arrow-right"></i>
 				</a>
 				<div class="cart_description">
-					<div class="item_in_cart"></div>
-					<hr>
+					<ul class="cart-content__list">
+						<!--
+						<li class="cart-content__item">
+							<article class="cart-content__product cart-product">
+								<img src="img/популярные/филадельфия классик.png" alt="" class="cart-product__img">
+								<div class="cart-product__text">
+									<h3 class="cart-product__title">Филадельфия классик</h3>
+									<div class="adjustment">
+										<div class="plus">
+											<a href="#" class="add_to_cart"><img src="img/arrows/plus-solid.svg" alt=""></a>
+										</div>
+										<div class="product_quantity">
+											4
+										</div>
+										<div class="minus">
+											<a href="#" class="minus_from_cart"><img src="img/arrows/minus-solid.svg" alt=""></a>
+										</div>
+									</div>
+								</div>
+								<span class="cart-product__price">250</span>₽
+								<button class="cart-product__delete" aria-label="Удалить товар"></button>
+							</article>
+						</li>
+						-->
+					</ul>
 					<div class="cart_sum">Сумма заказа: <span id='items_end_price'>0</span></div>
 				</div>
 			</div>  
@@ -81,7 +104,7 @@
 	</header>
 	
 	<main>
-		<div id="tab_main">
+		<div class="tab_block tab_main block">
 			<div class="slider">
 				<div class="slider__item">
 					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/banners/banner1.jpg" class="lazy"></a>
@@ -129,8 +152,13 @@
 								<div class="description">
 									<p>Сыр, авокадо, лосось</p>
 									<div class="price">
-										<div><span>250 гр.</span><br> <span>359₽</span></div>
-										<a href="#" class="add_to_cart" data-id='1f2k4c' tabindex="0">в корзину</a>
+										<div>
+											<span>250 гр.</span><br> 
+											<span class='item_price'>359</span>₽
+										</div>
+										<div>
+											<a href="#" class="add_to_cart" data-id='1f2k4c' tabindex="0">в корзину</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -140,7 +168,7 @@
 								<div class="description">
 									<p>Краб, авокадо, огурец, тобито, маонез</p>
 									<div class="price">
-										<div><span>250 гр.</span><br> <span>249₽</span></div>
+										<div><span>250 гр.</span><br> <span class='item_price'>249</span>₽</div>
 										<a href="#" class="add_to_cart" data-id='1f1f1f' tabindex="-1">в корзину</a>
 									</div>
 								</div>
@@ -151,7 +179,7 @@
 								<div class="description">
 									<p>Нори, угорь, сливочный сыр, огурец, темпура</p>
 									<div class="price">
-										<div><span>250 гр.</span><br> <span>279₽</span></div>
+										<div><span>250 гр.</span><br> <span class='item_price'>279</span>₽</div>
 										<a href="#" class="add_to_cart" data-id='5f1grah' tabindex="-1">в корзину</a>
 									</div>
 								</div>
@@ -162,7 +190,7 @@
 								<div class="description">
 									<p>Краб, огурец, маонез, тобихо черный</p>
 									<div class="price">
-										<div><span>240 гр.</span><br> <span>229₽</span></div>
+										<div><span>240 гр.</span><br> <span class='item_price'>229</span>₽</div>
 										<a href="#" class="add_to_cart" data-id='k2ag88c' tabindex="-1">в корзину</a>
 									</div>
 								</div>
@@ -174,7 +202,7 @@
 								<div class="description">
 									<p>Сыр, угорь, омлет, кунжут</p>
 									<div class="price">
-										<div><span>250 гр.</span><br> <span>259₽</span></div>
+										<div><span>250 гр.</span><br> <span class='item_price'>259</span>₽</div>
 										<a href="#" class="add_to_cart" data-id='1akisef' tabindex="-1">в корзину</a>
 									</div>
 								</div>
@@ -185,7 +213,7 @@
 								<div class="description">
 									<p>Канада, Калифорния, Ролл с креветкой, Филадельфия с огурцом</p>
 									<div class="price">
-										<div><span>850 гр.</span><br> <span>799₽</span></div>
+										<div><span>850 гр.</span><br> <span class='item_price'>799</span>₽</div>
 										<a href="#" class="add_to_cart" data-id='5sja8qf' tabindex="-1">в корзину</a>
 									</div>
 								</div>				
@@ -206,7 +234,7 @@
 								</div>
 								<div class="description">
 									<div class="price">
-										<div><span>250 гр.</span><br> <span>359₽</span></div>
+										<div><span>250 гр.</span><br> <span class='item_price'>359</span> ₽</div>
 										<a href="#" class="add_to_cart" data-id='1f2k4c' tabindex="0">в корзину</a>
 									</div>
 								</div>
@@ -247,7 +275,7 @@
 								</table>				
 								<div class="description">
 									<div class="price">
-										<div><span>250 гр.</span><br> <span>249₽</span></div>
+										<div><span>250 гр.</span><br> <span class='item_price'>249</span> ₽</div>
 										<a href="#" class="add_to_cart" data-id='1f1f1f' tabindex="0">в корзину</a>
 									</div>
 								</div>
@@ -267,7 +295,7 @@
 								</div>
 								<div class="description">
 									<div class="price">
-										<div><span>250 гр.</span><br> <span>279₽</span></div>
+										<div><span>250 гр.</span><br> <span class='item_price'>279</span> ₽</div>
 										<a href="#" class="add_to_cart" data-id='5f1grah' tabindex="0">в корзину</a>
 									</div>
 								</div>
@@ -287,7 +315,7 @@
 								</div>
 								<div class="description">
 									<div class="price">
-										<div><span>240 гр.</span><br> <span>229₽</span></div>
+										<div><span>240 гр.</span><br> <span class='item_price'>229</span>₽</div>
 										<a href="#" class="add_to_cart" data-id='k2ag88c' tabindex="0">в корзину</a>
 									</div>
 								</div>
@@ -307,7 +335,7 @@
 								</div>
 								<div class="description">
 									<div class="price">
-										<div><span>250 гр.</span><br> <span>259₽</span></div>
+										<div><span>250 гр.</span><br> <span class='item_price'>259</span>₽</div>
 										<a href="#" class="add_to_cart" data-id='1akisef' tabindex="0">в корзину</a>
 									</div>
 								</div>
@@ -327,7 +355,7 @@
 								</div>
 								<div class="description">
 									<div class="price">
-										<div><span>850 гр.</span><br> <span>799₽</span></div>
+										<div><span>850 гр.</span><br> <span class='item_price'>799₽</span>₽</div>
 										<a href="#" class="add_to_cart" data-id='5sja8qf' tabindex="0">в корзину</a>
 									</div>
 								</div>
@@ -335,7 +363,7 @@
 						</div>
 					</div>
 				</div>
-		</div>
+			</div>
 
 
 			<div class="wrapper">
@@ -376,7 +404,7 @@
 
 		<div class="wrapper">
 			<div class="tabs_block">
-				<div class="tab_block" id="tab_sets">
+				<div class="tab_block tab_sets">
 					<h2>Сеты</h2>
 					<div class="items">
 						<div class="item">
@@ -453,7 +481,7 @@
 
 
 
-				<div class="tab_block" id="tab_rolls">
+				<div class="tab_block tab_rolls">
 					<h2>Роллы</h2>
 
 					<div class="tab_type">
@@ -1180,7 +1208,7 @@
 				</div>
 
 
-				<div class="tab_block" id="tab_sushi">
+				<div class="tab_block tab_sushi">
 					<h2>Суши</h2>
 					<div class="items">
 						<div class ="item">
@@ -1291,7 +1319,7 @@
 
 
 
-				<div class="tab_block" id="tab_pizza">
+				<div class="tab_block tab_pizza">
 					<h2>Пицца</h2>
 					<div class="items">
 						<div class="item">
@@ -1444,7 +1472,7 @@
 
 
 
-				<div class="tab_block" id="tab_burgers">
+				<div class="tab_block tab_burgers">
 					<h2>Бургеры</h2>
 					<div class="items">
 						<div class="item">
@@ -1489,7 +1517,7 @@
 
 
 
-				<div class="tab_block" id="tab_woks">
+				<div class="tab_block tab_woks">
 					<h2>Воки</h2>
 					<div class="items">
 						<div class="item">
@@ -1643,7 +1671,7 @@
 
 
 
-				<div class="tab_block" id="tab_garnirs">
+				<div class="tab_block tab_garnirs">
 					<h2>Гарниры</h2>
 					<div class="items">
 						<div class="item">
@@ -1676,7 +1704,7 @@
 
 
 
-				<div class="tab_block" id="tab_soups">
+				<div class="tab_block tab_soups">
 					<h2>Супы</h2>
 					<div class="items">
 						<div class="item">
@@ -1756,7 +1784,7 @@
 
 
 
-				<div class="tab_block" id="tab_salats">
+				<div class="tab_block tab_salats">
 					<h2>Салат</h2>
 					<div class="items">
 						<div class="item">
@@ -1826,7 +1854,7 @@
 
 
 
-				<div class="tab_block" id="tab_drinks">
+				<div class="tab_block tab_drinks">
 					<h2>Напитки</h2>
 					<div class="items">
 						<div class="item">

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/Favicon.ico">
+	<script defer type="text/javascript" src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+	<script defer src="js/slick.min.js"></script>
+	<script defer>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></body>
+	<script defer src="https://kit.fontawesome.com/38a553fbf6.js" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.4.0/dist/lazyload.min.js"></script>
+	<script defer src="js/script.js"></script>
+	<title>Корзина</title>
+</head>
+<body>
+	<header>
+		<div class="wrapper wrapper_menu">
+			<div class="rows">
+				<div class="logo">
+					<a href="index.html">
+						<img src="img/Favicon.PNG" alt=""> 
+					</a>
+				</div>
+				<div class="row">
+					<div class="social_media">
+						<a href="https://www.instagram.com/sushixan.kzn/">
+							<img src="img/social_media/instagram.svg" alt="">
+						</a>
+						<a href="https://vk.com/okinava_kazan">
+							<img src="img/social_media/facebook.svg" alt="">
+						</a>
+					</div>
+					<div class="block_work">
+						<div class="contacts">
+							<a href="tel: 22-555-30"><span class="phone_number">8 (843) 22-555-30</span></a>
+						</div>
+						<div class="work_time">
+							<span>Ежедневно с 10:00 до 00:00</span>
+						</div>
+					</div>
+					<div class="addres">Чистопольская 41 <br>
+					Кул Гали 11Б</div>
+				</div>
+				<div class="sign_in">
+					<i class="fas fa-sign-in-alt"></i>
+				</div>
+			</div>	
+		</div>
+		<div class="panel" id='panel'>
+
+			<div class="cart">
+				<a href="cart.html">
+					<span>КОРЗИНА</span>
+					<span class="devider"></span>
+					<span id="items_quantity"></span>
+					<i class="fas fa-arrow-right"></i>
+				</a>
+				<div class="cart_description">
+					<div class="item_in_cart"></div>
+					<hr>
+					<div class="cart_sum">Сумма заказа: <span id='items_end_price'>0</span></div>
+				</div>
+			</div>  
+		</div>
+	</header>
+	<footer>
+		<div class="footer"></div>
+		<div class="fixed_footer" id='footer'>
+			<div class="wrapper">
+				<ul>
+					<li>
+						<a href='#'>Условия доставки
+						</a>
+					</li>
+					<li>
+						<a href='#'>О нас</a>
+					</li>
+					<li>
+						<a href='#'>Оставить отзыв</a>
+					</li>
+					<li>
+						<a href='#'>Оплата</a>
+					</li>
+					<li>
+						<a href='#'>Акции</a>
+					</li>
+					<a href="#"><i class="fas fa-chevron-up"></i></a>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	
+</body>
+</html>
