@@ -71,6 +71,45 @@ main{
   z-index: 1;
   overflow: hidden;
 }
+input{
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 8px;
+}
+input[type=submit]{
+  background-color: red;
+  color: white;
+  border-width: 0;
+}
+
+input[type=submit]:hover{
+  background-color: #ffc107;
+}
+input:focus{
+  border-color: rgb(253, 206, 20);
+  box-shadow: 0 0 0 2px rgba(253, 126, 20, 0.2);
+}
+
+.base-info{
+  display: flex;
+  justify-content: space-between;
+}
+
+#form_info div{
+  margin: 10px;
+}
+
+
+#form_info div p{
+  display: block;
+  margin: 5px;
+}
+
+.delivery input{
+  width: 70%;
+}
+
+
 .logo img{
   max-width: 100px;
   min-width: 50px;
@@ -125,11 +164,13 @@ main{
 
 
 
-/************************Cart*********************/
+/*******************************Cart*****************************************/
 
-.cart a{
+
+.cart > a{
   display: flex;
   color: #3d3d3d;
+  padding: 10px;
   transition: all 0.5s ease 0.2s; 
 }
 
@@ -145,7 +186,6 @@ main{
   transition: all 0.2s ease 0.2s; 
 }
 .cart{
-  padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   margin-right: 7.75%; 
@@ -250,6 +290,7 @@ main{
   max-width: 100px;
   max-height: 100px;
   object-fit: cover;
+  border-radius: 5px;
 }
 .cart-product__text {
   width: 170px;
@@ -267,8 +308,19 @@ main{
 .adjustment a{
   padding: 10px;
   z-index: 10;
-
+  display: flex;
+  border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#popup_cart .popup_content{
+  display: block;
+}
+.popup_cart-content__list {
+  max-height: 280px;
+  margin-left: 0;
+  padding: 0;
+  overflow: scroll;
 }
 /**********************************************************************/
 .sticky {
@@ -277,6 +329,8 @@ main{
   width: 100%;
   margin: 0 auto;
 }
+
+
 .panel> ul{
   display: flex;
   margin: 0 auto;
@@ -599,6 +653,9 @@ footer{
 
 
 /***********************************************************/
+
+
+
 body.lock{
   overflow: hidden;
 }
@@ -643,7 +700,7 @@ td{
   border-radius: 20px;
   gap: 20px;
 }
-.popup img{
+.popup_content > img{
   width: 100%;
   margin-right: 10px;
   padding: 10px;
@@ -699,6 +756,12 @@ td{
   top: 0;
   left: 0;
 }
+
+#popup_cart .popup_content{
+  max-width: 1300px;
+}
+
+
 
 /**********************************************************************************/
 

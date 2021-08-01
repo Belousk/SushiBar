@@ -28,7 +28,8 @@
 				</div>
 				<div class="row">
 					<div class="social_media">
-						<a href="https://www.instagram.com/sushixan.kzn/">
+						<a href="#" class="link"><!--https://www.instagram.com/sushixan.kzn/-->
+
 							<img src="img/social_media/instagram.svg" alt="">
 						</a>
 						<a href="https://vk.com/okinava_kazan">
@@ -63,9 +64,10 @@
 				<li><a href='#' class="tabs" id='tab_soups'>СУПЫ</a></li>
 				<li><a href='#' class="tabs" id='tab_garnirs'>ГАРНИРЫ</a></li>				
 				<li><a href='#' class="tabs" id='tab_drinks'>НАПИТКИ</a></li>
+				<li><a href='#' class="tabs" id='tab_pokes'>ПОКИ</a></li>
 			</ul>
 			<div class="cart">
-				<a href="cart.html">
+				<a href="#popup_cart" class="popup_link">
 					<span>КОРЗИНА</span>
 					<span class="devider"></span>
 					<span id="items_quantity">0</span>
@@ -97,7 +99,9 @@
 						</li>
 						-->
 					</ul>
-					<div class="cart_sum">Сумма заказа: <span id='items_end_price'>0</span></div>
+					<div class="cart_sum">
+						Сумма заказа: <span id='items_end_price'>0</span>
+					</div>
 				</div>
 			</div>  
 		</div>
@@ -107,23 +111,19 @@
 		<div class="tab_block tab_main block">
 			<div class="slider">
 				<div class="slider__item">
-					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/banners/banner1.jpg" class="lazy"></a>
+					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/баннеры/1.png" class="lazy"></a>
 				</div>
 				<div class="slider__item">
-					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/banners/banner2.jpg" class="lazy"></a>
+					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/баннеры/2.png" class="lazy"></a>
 				</div>
 				<div class="slider__item">
-					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/banners/banner3.jpg" class="lazy"></a>
+					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/баннеры/3.png" class="lazy"></a>
 				</div>
 				<div class="slider__item">
-					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/banners/banner4.jpg" class="lazy"></a>
+					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/баннеры/4.png" class="lazy"></a>
 				</div>
 				<div class="slider__item">
-					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/banners/banner5.jpg" class="lazy"></a>
-
-				</div>
-				<div class="slider__item">
-					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/banners/banner6.jpg" class="lazy"></a>
+					<a href="#" tabindex="-1"><img src="" alt="" data-src="img/баннеры/5.png" class="lazy"></a>
 				</div>
 			</div>
 		
@@ -222,6 +222,46 @@
 				</div>
 			</div>
 			<div class="popups">
+				<div class="popup" id='popup_cart'>
+					<div class="popup_body">
+						<div class="popup_content">
+							<a href="#panel" class="close-popup"><i class="fas fa-times"></i></a>
+							<div class="popup_cart_description">
+								<ul class="popup_cart-content__list">
+									<!--
+									<li class="cart-content__item">
+										<article class="cart-content__product cart-product">
+											<img src="img/популярные/филадельфия классик.png" alt="" class="cart-product__img">
+											<div class="cart-product__text">
+												<h3 class="cart-product__title">Филадельфия классик</h3>
+												<div class="adjustment">
+													<div class="plus">
+														<a href="#" class="add_to_cart">
+														<img src="img/arrows/plus-solid.svg" alt=""></a>
+													</div>
+													<div class="product_quantity">
+														4
+													</div>
+													<div class="minus">
+														<a href="#" class="minus_from_cart"><img src="img/arrows/minus-solid.svg" alt=""></a>
+													</div>
+												</div>
+											</div>
+											<span class="cart-product__price">250</span>₽
+											<button class="cart-product__delete" aria-label="Удалить товар"></button>
+										</article>
+									</li>
+									-->
+								</ul>
+								<form action="/index.php" method="post" id="form_info">
+								</form>
+								<div class="popup_cart_sum">
+									Сумма заказа: <span id='popup_items_end_price'>0</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="popup" id='popup_1'>
 					<div class="popup_body">
 						<div class="popup_content">
@@ -370,12 +410,11 @@
 				<div class="promotion">
 					<h2>Акции</h2>
 					<div class="grid">
-						<a href="#"><img src="img/banners/banner1.jpg" alt="" data-src="img/banners/banner1.jpg" class="lazy entered loaded" data-ll-status="loaded"></a>
-						<a href="#"><img src="img/banners/banner2.jpg" alt="" data-src="img/banners/banner2.jpg" class="lazy entered loaded" data-ll-status="loaded"></a>
-						<a href="#"><img src="img/banners/banner3.jpg" alt="" data-src="img/banners/banner3.jpg" class="lazy entered loaded" data-ll-status="loaded"></a>
-						<a href="#"><img src="img/banners/banner4.jpg" alt="" data-src="img/banners/banner4.jpg" class="lazy entered loaded" data-ll-status="loaded"></a>
-						<a href="#"><img src="img/banners/banner5.jpg" alt="" data-src="img/banners/banner5.jpg" class="lazy entered loaded" data-ll-status="loaded"></a>
-						<a href="#"><img src="img/banners/banner6.jpg" alt="" data-src="img/banners/banner6.jpg" class="lazy entered loaded" data-ll-status="loaded"></a>
+						<a href="#"><img alt="" data-src="img/баннеры/1.png" class="lazy"></a>
+						<a href="#"><img alt="" data-src="img/баннеры/2.png" class="lazy"></a>
+						<a href="#"><img alt="" data-src="img/баннеры/3.png" class="lazy"></a>
+						<a href="#"><img alt="" data-src="img/баннеры/4.png" class="lazy"></a>
+						<a href="#"><img alt="" data-src="img/баннеры/5.png" class="lazy"></a>
 					</div>
 				</div>
 			</div>
@@ -2044,6 +2083,71 @@
 								<p></p>
 								<div class="price">
 									<div> <span>500  мл. </span> <br> <span> 80 ₽</span></div>
+									<a href="#"> в корзину </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab_block tab_pokes">
+					<h2>Поки</h2>
+					<div class="items">
+						<div class ="item">
+							<img class="lazy" src="" data-src = "img/поке/поке с лососем.jpg" alt = "">
+							<h3>Поке с лососем</h3>
+							<div class ="description">
+								<p>Рис, лосось, черри, кукуруза, тобико, водоросли, огурцы, авокадо, соус фирменный</p>
+								<div class ="price">
+									<div> <span> 319гр гр. </span> <br> <span> 249 руб &#8381</span></div>
+									<a href="#"> в корзину </a>
+								</div>
+							</div>
+						</div>
+
+						<div class ="item">
+							<img class="lazy" src="" data-src = "img/поке/поке с креветками.jpg" alt = "">
+							<h3>Поке с креветками</h3>
+							<div class ="description">
+								<p>Рис, креветки, черри, кукуруза, тобико, водоросли, огурцы, авокадо, соус фирменный</p>
+								<div class ="price">
+									<div> <span> 319 гр гр. </span> <br> <span> 269 руб &#8381</span></div>
+									<a href="#"> в корзину </a>
+								</div>
+							</div>
+						</div>
+
+						<div class ="item">
+							<img class="lazy" src="" data-src = "img/поке/поке с угрем.jpg" alt = "">
+							<h3>Поке с угрем</h3>
+							<div class ="description">
+								<p>Рис, угорь, черри, кукуруза, тобико, водоросли, огурцы, авокадо, соус фирменный</p>
+								<div class ="price">
+									<div> <span> 319 гр гр. </span> <br> <span> 259 руб &#8381</span></div>
+									<a href="#"> в корзину </a>
+								</div>
+							</div>
+						</div>
+
+						<div class ="item">
+							<img class="lazy" src="" data-src = "img/поке/поке с курицей.jpg" alt = "">
+							<h3>Поке с курицей</h3>
+							<div class ="description">
+								<p>Рис, курица холодного копчения, черри, кукуруза, тобико, водоросли, огурцы, авокадо, соус фирменный </p>
+								<div class ="price">
+									<div> <span> 309 гр гр. </span> <br> <span> 239 руб &#8381</span></div>
+									<a href="#"> в корзину </a>
+								</div>
+							</div>
+						</div>
+
+						<div class ="item">
+							<img class="lazy" src="" data-src = "img/поке/поке фруктовый.jpg" alt = "">
+							<h3>Поке фруктовый</h3>
+							<div class ="description">
+								<p>Рис, апельсин, банан, яблоко, черри, кукуруза, тобико, водоросли, огурцы, авокадо, соус фирменный</p>
+								<div class ="price">
+									<div> <span> 299 гр гр. </span> <br> <span> 219 руб &#8381</span></div>
 									<a href="#"> в корзину </a>
 								</div>
 							</div>
