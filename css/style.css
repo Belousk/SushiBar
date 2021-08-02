@@ -67,6 +67,9 @@ img {
   vertical-align: top;
 }
 /**************************************************************************************************/
+.red{
+  color: #ec1f27;
+}
 main{
   z-index: 1;
   overflow: hidden;
@@ -379,7 +382,7 @@ input:focus{
   height: 100%;
 
 }
-.addres{
+.sushi_addres{
   margin-right: 40px;
   color: #3d3d3d;
 }
@@ -406,6 +409,33 @@ header{
   display: none;
 }
 
+
+.tab_block h2{
+  margin: 30px 10px;
+  display: block;
+}
+.categories{
+  display: flex;
+  margin-left: 100px;
+}
+.category{
+  margin-left: 20px;
+}
+.category a{
+  color: #3d3d3d;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 3px;
+  border-radius: 10px;
+}
+/******************************FOOTER****************************************************/
+footer{
+  height: 300px;
+  background-color: #353535;
+  color: #8c8c8c;
+  margin-top: 20px;
+}
+
 .fixed_footer ul{
   display: flex;
 }
@@ -427,31 +457,63 @@ header{
   transition: all .3s ease;
   background-color: #353535;
 }
-
-.tab_block h2{
-  margin: 30px 10px;
-  display: block;
-}
-.categories{
+.footer_content{
   display: flex;
-  margin-left: 100px;
+  justify-content: space-between;
+  padding-top: 20px;
 }
-.category{
-  margin-left: 20px;
+.connection_with_us a{
+  color: #8c8c8c;
+  font-weight: bold;
 }
-.category a{
-  color: #3d3d3d;
-  display: block;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  padding: 3px;
-  border-radius: 10px;
+.connection_with_us{
+  flex: 41.3333%;
 }
 
-footer{
-  height: 300px;
-  background-color: #353535;
+.our_payments{
+  flex: 0 0 25%;
+  margin-top: 40px;
 }
 
+.footer_content .our_payments img{
+  width: 33.3333%;
+}
+
+.payable_card{
+  margin-top: 15px;
+  display: flex;
+  padding: 0 70px 0 0;
+}
+
+
+
+
+.footer_content .our_app a{
+  flex: 0 0 50%;
+  padding: 0;
+}
+
+.footer_content .our_app img{
+  max-width: 100%;
+  padding-right: 5px;
+}
+
+.footer_content .our_app img.last{
+  max-width: 100%;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+.our_app{
+  flex: 0 0 33.33333%;
+  padding: 0 15px
+}
+
+.our_app .icons{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+}
 /**********************************Items***********************************/
 .items{
   display: grid;
@@ -646,9 +708,18 @@ footer{
   gap: 10px;
   margin: 10px;
 }
+.promotion a{
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
 .promotion img{
   width: 100%;
-  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+.promotion a:hover img{
+  transform: scale(1.1);
+  transition: all 0.5s ease;
 }
 
 
@@ -761,7 +832,35 @@ td{
   max-width: 1300px;
 }
 
+/**************************************************************************************/
+.advantages{
+  color: #4c4c4c;
+  display: flex;
+  flex-wrap: wrap;
+}
+.advantages .first{
+  flex: 0 0 100%;
+  width: 100%;
+}
 
+.advantages .second{
+  flex: 0 0 50%;
+  width: 100%;
+}
+.advantages .third{
+  flex: 0 0 50%;
+  width: 100%;
+}
+.advantages ul{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.advantages ul li{
+  list-style: disc;
+  margin-left: 40px;
+  margin-top: 10px;
+}
 
 /**********************************************************************************/
 
@@ -842,7 +941,7 @@ td{
   .wrapper_popular{
     max-width: 70%;
   }
-  .addres{
+  .sushi_addres{
     display: none;
   }
   .phone_number{
@@ -915,7 +1014,7 @@ td{
   .categories{
     margin-left: 60px;
   }
-  .addres{
+  .sushi_addres{
     display: none;
   }
   .row{
