@@ -462,6 +462,9 @@ footer{
   justify-content: space-between;
   padding-top: 20px;
 }
+.footer_content p{
+  line-height: 2;
+}
 .connection_with_us a{
   color: #8c8c8c;
   font-weight: bold;

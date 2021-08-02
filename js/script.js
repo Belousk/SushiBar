@@ -100,11 +100,15 @@ let renderCart = function(){
 										</div>
 										<div class="form__phone">
 											<p>Телефон:</p>
-											<input type="tel" value="" name='name' placeholder="+7 (9_ _) _ _ _ - _ _ - _ _">
+											<input type="tel" value="" name='phone' placeholder="+7 (9_ _) _ _ _ - _ _ - _ _">
 										</div>
 										<div class="email">
 											<p>Почта:</p>
 											<input type="email" value="" name='email' placeholder="example@mail.ru">
+										</div>
+										<div class="quantity_of_people">
+											<p>Кол-во людей:</p>
+											<input type="number" value="" width='50px' name='quantity_of_people' placeholder="">
 										</div>
 									</div>
 									<h3>Доставка</h3>
@@ -122,6 +126,7 @@ let renderCart = function(){
 											<input type="text" value="" name='frame' placeholder="">
 										</div>
 									</div>
+									<input type="hidden" name="act" value="order">
 									<input type="submit" value="Оформить"> 
 									`; 
 
