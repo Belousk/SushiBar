@@ -436,17 +436,14 @@ footer{
   margin-top: 20px;
 }
 
-.fixed_footer ul{
-  display: flex;
-}
 .fixed_footer a{
   display: block;
-  color: white;
+  color: #8c8c8c; 
   margin: 20px;
 }
 .fixed_footer a:first-child{
   display: block;
-  color: white;
+  color: #8c8c8c; 
   margin-left: 0;
 }
 
@@ -517,6 +514,51 @@ footer{
   display: flex;
   flex-wrap: nowrap;
 }
+
+.fixed_footer ul.mobile{
+  display: none;
+}
+
+.mobile img{
+  width: 18px;
+  margin-bottom: 4px;
+}
+.mobile{
+  justify-content: space-between;
+  text-align: center;
+}
+.fixed_footer ul.desktop{
+  display: flex;
+}
+input[type='checkbox']{
+  visibility: hidden;
+}
+
+.hidden_ellipsis{
+  visibility: hidden;
+  transform: translateY(50px);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: -200px;
+  width: 100%;
+  background-color: #343434;
+  left: 0;
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+.hidden_ellipsis li{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0;
+  margin: 0;
+}
+.visible{
+  visibility: visible;
+  transition: all 0.5s ease;
+  z-index: -1;
+  bottom: 100px;
+}
+
 /**********************************Items***********************************/
 .items{
   display: grid;
@@ -726,7 +768,12 @@ footer{
 }
 
 
-/***********************************************************/
+/************************************************************************************
+ ___    ___    ___           ___    ___
+|   |  |   |  |   |  |   |  |   |   \                     
+|___|  |   |  |___|  |   |  |___|    \
+|      |___|  |      |___|  |       __\
+*/
 
 
 
@@ -923,6 +970,12 @@ td{
   }
   .panel{
     top: 66px;
+  }
+  .fixed_footer ul.desktop{
+    display: none;
+  }
+  .fixed_footer ul.mobile{
+    display: flex;
   }
   .sticky{  
     position: fixed;

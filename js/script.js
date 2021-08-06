@@ -9,6 +9,7 @@ var lazyLoadInstance = new LazyLoad({
 /************************************CART****************************************************/
 let cart = {}
 
+
 document.onclick = function(e){
 	if (e.target.classList.contains('add_to_cart')){
 		plusFunction(e.target.dataset.id);
@@ -506,7 +507,18 @@ function mySticky() {
 
 
 
-
+document.querySelector('.ellipsis').onclick = function(e){
+	if(document.querySelector('.ellipsis').classList.contains('show')){
+		document.querySelector('.ellipsis').classList.remove('show');
+		document.querySelector('.hidden_ellipsis').classList.add('visible');	
+	}
+	else{
+		document.querySelector('.hidden_ellipsis').style.display = 'flex';
+		document.querySelector('.ellipsis').classList.add('show');
+		document.querySelector('.hidden_ellipsis').classList.remove('visible');		
+	}
+	e.preventDefault();
+}
 
 
 
@@ -540,7 +552,7 @@ function myScroll(){
 	  if (prevScrollpos  > currentScrollPos) {
 	    document.getElementById("footer").style.bottom = "0px";
 	  } else {
-	    document.getElementById("footer").style.bottom = "-50px";
+	    document.getElementById("footer").style.bottom = "-80px";
 	  }
 	  prevScrollpos = currentScrollPos;
 }
