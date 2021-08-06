@@ -10,7 +10,6 @@ var lazyLoadInstance = new LazyLoad({
 let cart = {}
 
 document.onclick = function(e){
-	console.log(e.target.classList);
 	if (e.target.classList.contains('add_to_cart')){
 		plusFunction(e.target.dataset.id);
 		e.preventDefault();
@@ -62,7 +61,9 @@ document.onclick = function(e){
 
 	//let item_price = document.querySelector('[data-id="'+e.target.dataset.id+'"]').closest('.price').querySelector('.item_price')
 	document.querySelector('#items_end_price').innerHTML = items_sum + '₽';
-	document.querySelector('#popup_items_end_price').innerHTML = items_sum + '₽';
+	if(document.querySelector('.popup_cart')){
+		document.querySelector('#popup_items_end_price').innerHTML = items_sum + '₽';
+	}
 	
 
 	
@@ -70,12 +71,10 @@ document.onclick = function(e){
 
 }
 
-console.log();
 ///ADDING ITEM TO CART
 let plusFunction = function(id){
 	if (!(id in cart)){
 		cart[id] = 1;
-
 	}else{
 		if (cart[id] + 1 == 50){
 			cart[id]++;
@@ -102,12 +101,8 @@ let renderCart = function(){
 											<p>Телефон:</p>
 											<input type="tel" value="" name='phone' placeholder="+7 (9_ _) _ _ _ - _ _ - _ _">
 										</div>
-										<div class="email">
-											<p>Почта:</p>
-											<input type="email" value="" name='email' placeholder="example@mail.ru">
-										</div>
 										<div class="quantity_of_people">
-											<p>Кол-во людей:</p>
+											<p>Кол-во наборов:</p>
 											<input type="number" value="" width='50px' name='quantity_of_people' placeholder="">
 										</div>
 									</div>
@@ -131,6 +126,8 @@ let renderCart = function(){
 									`; 
 
 	for (let key of Object.keys(cart)){
+		console.log(document.querySelector('[data-id="'+key+'"]').closest('.item'));
+		console.log(document.querySelector('[data-id="'+key+'"]'));
 		let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').src;
 		let productName = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('h3').innerHTML;
 		let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
@@ -180,8 +177,10 @@ let renderCart = function(){
 		input_render+=`<input type="hidden" name='productName' value='${productName}'>`;
 	}
 	document.querySelector('.cart-content__list').innerHTML = cart_render;
-	document.querySelector('.popup_cart-content__list').innerHTML = popup_render;
-	document.querySelector('#form_info').innerHTML = input_render;
+	if(document.querySelector('.popup_cart-content__list')) {
+			document.querySelector('.popup_cart-content__list').innerHTML = popup_render;
+			document.querySelector('#form_info').innerHTML = input_render;
+	}
 }
 
 ////MINUSING ITEM FROM CART
@@ -212,7 +211,6 @@ let deleteFunction = function(id){
 const popupLinks = document.querySelectorAll('.popup_link');
 const body = document.querySelector('body');
 const lockPadding = document.querySelectorAll(".lock-padding");
-
 let unlock = true;
 
 let timeout = 800;
@@ -221,43 +219,104 @@ if (popupLinks.length > 0){
 	for (let index = 0; index < popupLinks.length; index++) {
 		let popupLink = popupLinks[index];
 		popupLink.addEventListener("click", function(e){
-			const popupName = popupLink.getAttribute('href').replace("#", '');
-			const curentPopup = document.getElementById(popupName);
-			popupOpen(curentPopup);
+			console.log(popupLink);
+			if (popupLink.getAttribute('href').replace("#", '')=='popup_cart'){
+				document.querySelector('.block').querySelector('.popups').innerHTML=`<div class="popup popup_cart" id='popup_cart'>
+					<div class="popup_body">
+						<div class="popup_content">
+							<a href="#panel" class="close-popup"><i class="fas fa-times"></i></a>
+							<div class="popup_cart_description">
+								<ul class="popup_cart-content__list">
+									<!--
+									<li class="cart-content__item">
+										<article class="cart-content__product cart-product">
+											<img src="img/популярные/филадельфия классик.png" alt="" class="cart-product__img">
+											<div class="cart-product__text">
+												<h3 class="cart-product__title">Филадельфия классик</h3>
+												<div class="adjustment">
+													<div class="plus">
+														<a href="#" class="add_to_cart">
+														<img src="img/arrows/plus-solid.svg" alt=""></a>
+													</div>
+													<div class="product_quantity">
+														4
+													</div>
+													<div class="minus">
+														<a href="#" class="minus_from_cart"><img src="img/arrows/minus-solid.svg" alt=""></a>
+													</div>
+												</div>
+											</div>
+											<span class="cart-product__price">250</span>₽
+											<button class="cart-product__delete" aria-label="Удалить товар"></button>
+										</article>
+									</li>
+									-->
+								</ul>
+								<form action='index.php' method="post" id="form_info">
+								</form>
+								<div class="popup_cart_sum">
+									Сумма заказа: <span id='popup_items_end_price'>0</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>`;
+			}else{
+
+				const name = popupLink.closest(".item").querySelector("h3").innerHTML;
+				const image = popupLink.closest(".item").querySelector("img").src;
+				const description = popupLink.closest(".item").querySelector("p").innerHTML;
+				const price = popupLink.closest(".item").querySelector(".price").innerHTML;
+				e.target.closest('.tab_block').querySelector(".popups").innerHTML=`<div class="popup">
+					<div class="popup_body">
+						<div class="popup_content">
+							<a href="#panel" class="close-popup"><i class="fas fa-times"></i></a>
+							<img src="${image}">
+							<div class="information">
+								<div class="info">	
+									<h3>${name}</h3>
+									<p>${description}</p>
+								</div>
+								<div class="description">
+									<div class="price">
+										${price}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>`;
+			}
+			renderCart();
+			popupOpen(document.querySelector('.popup'));
 			e.preventDefault();
 		});
 	}
 }
 
-
-
-let popupCloseIcon = document.querySelectorAll(".close-popup");
-if (popupCloseIcon.length > 0){
-	for (var index = 0; index < popupCloseIcon.length; index++) {
-		const el = popupCloseIcon[index];
-		el.addEventListener('click', function(e){
-			popupClose(el.closest('.popup'))
-			e.preventDefault();
-		});
-	}
-}
 
 
 
 function popupOpen(curentPopup){
 	if(curentPopup && unlock){
-		const popupActive = document.querySelector('.popup.open');
-		if(popupActive){
-			popupClose(popupActive, false);
-		}else{
-			bodyLock();
-		}
+		bodyLock();
 		curentPopup.classList.add('open');
 		curentPopup.addEventListener('click', function (e){
 			if(!e.target.closest('.popup_content')){
 				popupClose(e.target.closest('.popup'));
 			}
 		});
+		let popupCloseIcon = document.querySelectorAll(".close-popup");
+		if (popupCloseIcon.length > 0){
+
+		for (var index = 0; index < popupCloseIcon.length; index++) {
+			const el = popupCloseIcon[index];
+			el.addEventListener('click', function(e){
+				popupClose(el.closest('.popup'))
+				e.preventDefault();
+			});
+	}
+}
 	}
 }
 
@@ -274,6 +333,7 @@ function bodyLock(){
 function popupClose(popupActive, doUnlock = true){
 	if (unlock){
 		popupActive.classList.remove('open');
+		document.querySelector(".popups").innerHTML=``;
 		if(doUnlock){
 			bodyUnlock();
 		}
