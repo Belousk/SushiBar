@@ -34,14 +34,8 @@ if ($_POST['act'] == 'order') {
     $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
 
 //Выводим сообщение об успешной отправке
-    if ($sendToTelegram) {
-        alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
-    }
 
-//А здесь сообщение об ошибке при отправке
-    else {
-        alert('Что-то пошло не так. ПОпробуйте отправить форму ещё раз.');
-    }
+//А здесь сообщение об ошибке при отправ
 }
 
 ?>

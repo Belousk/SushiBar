@@ -530,9 +530,6 @@ footer{
 .fixed_footer ul.desktop{
   display: flex;
 }
-input[type='checkbox']{
-  visibility: hidden;
-}
 
 .hidden_ellipsis{
   visibility: hidden;
@@ -542,6 +539,7 @@ input[type='checkbox']{
   position: fixed;
   bottom: -200px;
   width: 100%;
+  text-align: center;
   background-color: #343434;
   left: 0;
   transition: all 0.5s ease;
