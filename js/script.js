@@ -1,6 +1,5 @@
 
 window.addEventListener('scroll', mySticky);
-window.addEventListener('scroll', myScroll);
 var lazyLoadInstance = new LazyLoad({
   // Your custom settings go here
 });
@@ -262,7 +261,10 @@ if (popupLinks.length > 0){
 						</div>
 					</div>
 				</div>`;
-			}else{
+				renderCart();
+				popupOpen(document.querySelector('.popup'));
+				e.preventDefault();
+			}else if(popupLink.getAttribute('href').replace("#", '')==''){
 
 				const name = popupLink.closest(".item").querySelector("h3").innerHTML;
 				const image = popupLink.closest(".item").querySelector("img").src;
@@ -287,10 +289,13 @@ if (popupLinks.length > 0){
 						</div>
 					</div>
 				</div>`;
+				renderCart();
+				popupOpen(document.querySelector('.popup'));
+				e.preventDefault();
+			}else{
+				popupOpen(e.target.closest('.popup'));
+				e.preventDefault();
 			}
-			renderCart();
-			popupOpen(document.querySelector('.popup'));
-			e.preventDefault();
 		});
 	}
 }
@@ -310,14 +315,14 @@ function popupOpen(curentPopup){
 		let popupCloseIcon = document.querySelectorAll(".close-popup");
 		if (popupCloseIcon.length > 0){
 
-		for (var index = 0; index < popupCloseIcon.length; index++) {
-			const el = popupCloseIcon[index];
-			el.addEventListener('click', function(e){
-				popupClose(el.closest('.popup'))
-				e.preventDefault();
-			});
-	}
-}
+			for (var index = 0; index < popupCloseIcon.length; index++) {
+				const el = popupCloseIcon[index];
+				el.addEventListener('click', function(e){
+					popupClose(el.closest('.popup'))
+					e.preventDefault();
+				});
+			}
+		}
 	}
 }
 
@@ -395,13 +400,21 @@ for (let tab of tabs){
 			tab.style.borderBottom = "0px solid red";
 			document.querySelector('.block').classList.remove('block');
 			document.querySelector('.tab_main').classList.add('block');
-		}else{
+		}else if (tab.id === 'tab_set'){
+			document.getElementById(document.querySelector('.block').classList[1]).style.borderBottom = "0px solid red";
+			document.getElementById(`${tab.id}s`).style.borderBottom = "3px solid red";
+			document.querySelector('.block').classList.remove('block');
+			document.querySelector(`.${tab.id}s`).classList.add('block');
+		}
+		else{
 			document.getElementById(document.querySelector('.block').classList[1]).style.borderBottom = "0px solid red";
 			tab.style.borderBottom = "3px solid red";
 			document.querySelector('.block').classList.remove('block');
 			document.querySelector(`.${tab.id}`).classList.add('block');
 		}
+		
 	}
+
 }
 
 
@@ -513,7 +526,6 @@ document.querySelector('.ellipsis').onclick = function(e){
 		document.querySelector('.hidden_ellipsis').classList.add('visible');	
 	}
 	else{
-		document.querySelector('.hidden_ellipsis').style.display = 'flex';
 		document.querySelector('.ellipsis').classList.add('show');
 		document.querySelector('.hidden_ellipsis').classList.remove('visible');		
 	}
@@ -546,7 +558,7 @@ document.querySelector('.ellipsis').onclick = function(e){
 
 
 /*********************************for bottom footer**************************************/
-let prevScrollpos = window.pageYOffset;
+/*let prevScrollpos = window.pageYOffset;
 function myScroll(){
 	  let currentScrollPos = window.pageYOffset;
 	  if (prevScrollpos  > currentScrollPos) {
@@ -558,7 +570,7 @@ function myScroll(){
 }
 
 
-
+*/
 
 
 

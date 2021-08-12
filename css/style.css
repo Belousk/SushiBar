@@ -96,6 +96,7 @@ input:focus{
 .base-info{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 #form_info div{
@@ -434,6 +435,7 @@ footer{
   background-color: #353535;
   color: #8c8c8c;
   margin-top: 20px;
+  z-index: 10;
 }
 
 .fixed_footer a{
@@ -449,7 +451,7 @@ footer{
 
 .fixed_footer {
   position: fixed;
-  bottom: -50px;
+  bottom: 0px;
   width: 100%;
   transition: all .3s ease;
   background-color: #353535;
@@ -526,9 +528,14 @@ footer{
 .mobile{
   justify-content: space-between;
   text-align: center;
+  z-index: 3;
 }
 .fixed_footer ul.desktop{
   display: flex;
+}
+
+.hidden_ellipsis a{
+  color: #8c8c8c;
 }
 
 .hidden_ellipsis{
@@ -536,6 +543,7 @@ footer{
   transform: translateY(50px);
   display: flex;
   flex-direction: column;
+  color: #8c8c8c; 
   position: fixed;
   bottom: -200px;
   width: 100%;
@@ -543,18 +551,17 @@ footer{
   background-color: #343434;
   left: 0;
   transition: all 0.5s ease;
-  z-index: -1;
+  z-index: 10;
 }
 .hidden_ellipsis li{
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 0;
+  padding: 10px;
   margin: 0;
 }
 .visible{
   visibility: visible;
   transition: all 0.5s ease;
-  z-index: -1;
-  bottom: 100px;
+  bottom: 125px;
 }
 
 /**********************************Items***********************************/
@@ -784,7 +791,7 @@ body.lock{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: -1;
   opacity: 0;
   visibility: 0;
@@ -1020,7 +1027,7 @@ td{
     grid-template-rows: 1fr 1fr;
     overflow-y: scroll; 
   }
-  .popup_content img{
+  .popup_content > img{
     width: 100%;
   }
   .popup_content .information{
@@ -1031,12 +1038,16 @@ td{
     display: block;
     width: 100px;
   }
+
 }
 @media screen and (max-width: 520px){
 
 }
 
 @media screen and (max-width: 460px){
+  .popup_cart-content__list{
+    max-height: 130px;
+  }
   .sign_in{
     padding: 10px 10px;
     padding-right: 5px;
