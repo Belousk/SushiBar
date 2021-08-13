@@ -834,6 +834,7 @@ td{
   max-width: 1000px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .popup_banners .popup_content .promotion_images{
   flex: 0 0 50%;
@@ -845,7 +846,7 @@ td{
 }
 
 .popup_banners .popup_content .promotion_description{
-  flex: 0 0 50%;
+  flex: 0 0 40%;
 }
 .post_scriptum{
   color: #8c8c8c;

@@ -221,7 +221,7 @@ if (popupLinks.length > 0){
 		popupLink.addEventListener("click", function(e){
 			console.log(popupLink.getAttribute('href'));
 			if (popupLink.getAttribute('href').replace("#", '')=='popup_cart'){
-				document.querySelector('.block').querySelectorAll('.popups'[0]).innerHTML=`<div class="popup popup_cart" id='popup_cart'>
+				document.querySelector('.block').querySelectorAll('.popups')[0].innerHTML=`<div class="popup popup_cart" id='popup_cart'>
 					<div class="popup_body">
 						<div class="popup_content">
 							<a href="#panel" class="close-popup"><i class="fas fa-times"></i></a>
