@@ -6,8 +6,12 @@ var lazyLoadInstance = new LazyLoad({
 
 
 /************************************CART****************************************************/
-let cart = JSON.parse(localStorage.getItem('cart'));
 
+
+if(!JSON.parse(localStorage.getItem('cart'))){
+	localStorage.setItem('cart', JSON.stringify({}));
+}
+let cart = JSON.parse(localStorage.getItem('cart'));
 document.getElementById('items_quantity').innerHTML = Object.keys(cart).length;
 let cart_render = '';
 	let popup_render = '';
@@ -94,14 +98,15 @@ for (let key of Object.keys(cart)){
 			</li>\n`;
 	input_render+=`<input type="hidden" name='productName' value='${productName}'>`;
 }
+localStorage.setItem('cart', JSON.stringify(cart));
+cart = JSON.parse(localStorage.getItem('cart'));
+
+
 document.querySelector('.cart-content__list').innerHTML = cart_render;
 if(document.querySelector('.popup_cart-content__list')) {
 		document.querySelector('.popup_cart-content__list').innerHTML = popup_render;
 		document.querySelector('#form_info').innerHTML = input_render;
 }
-localStorage.setItem('cart', JSON.stringify(cart));
-console.log(localStorage.getItem('cart', JSON.stringify(cart)));
-cart = JSON.parse(localStorage.getItem('cart'));
 
 document.onclick = function(e){
 	if (e.target.classList.contains('add_to_cart')){
@@ -275,7 +280,6 @@ let renderCart = function(){
 			document.querySelector('#form_info').innerHTML = input_render;
 	}
 	localStorage.setItem('cart', JSON.stringify(cart));
-	console.log(localStorage.getItem('cart', JSON.stringify(cart)));
 	cart = JSON.parse(localStorage.getItem('cart'));
 }
 
@@ -315,8 +319,6 @@ if (popupLinks.length > 0){
 	for (let index = 0; index < popupLinks.length; index++) {
 		let popupLink = popupLinks[index];
 		popupLink.addEventListener("click", function(e){
-			console.log(popupLink.getAttribute('href'));
-			console.log(popupLink.getAttribute('href').replace("#", '')=='popup_cart')
 			console.log(document.querySelector('.block').querySelectorAll('.popups')[0].innerHTML);
 			if (popupLink.getAttribute('href').replace("#", '')=='popup_cart'){
 				document.querySelector('.block .popups').innerHTML=`<div class="popup popup_cart" id='popup_cart'>
