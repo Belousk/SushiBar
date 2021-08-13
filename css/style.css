@@ -92,7 +92,11 @@ input:focus{
   border-color: rgb(253, 206, 20);
   box-shadow: 0 0 0 2px rgba(253, 126, 20, 0.2);
 }
-
+.special_delivery{
+  min-width: 120px;
+  font-weight: bold;
+  font-size: 18px;
+}
 .base-info{
   display: flex;
   justify-content: space-between;
@@ -307,6 +311,7 @@ input:focus{
 
 .adjustment img{
   width: 10px;
+  max-height: 15px;
   z-index: -1;
 }
 .adjustment a{
@@ -846,7 +851,7 @@ td{
 }
 
 .popup_banners .popup_content .promotion_description{
-  flex: 0 0 40%;
+  flex: 0 0 44%;
 }
 .post_scriptum{
   color: #8c8c8c;
@@ -1016,6 +1021,9 @@ td{
   }
   .special_delivery{
     display: none;
+  }
+  .popup_banners .popup_content .promotion_description{
+    flex: 0 0 45%;
   }
 }
 
