@@ -219,9 +219,9 @@ if (popupLinks.length > 0){
 	for (let index = 0; index < popupLinks.length; index++) {
 		let popupLink = popupLinks[index];
 		popupLink.addEventListener("click", function(e){
-			console.log(popupLink);
+			console.log(popupLink.getAttribute('href'));
 			if (popupLink.getAttribute('href').replace("#", '')=='popup_cart'){
-				document.querySelector('.block').querySelector('.popups').innerHTML=`<div class="popup popup_cart" id='popup_cart'>
+				document.querySelector('.block').querySelectorAll('.popups'[0]).innerHTML=`<div class="popup popup_cart" id='popup_cart'>
 					<div class="popup_body">
 						<div class="popup_content">
 							<a href="#panel" class="close-popup"><i class="fas fa-times"></i></a>
@@ -270,7 +270,7 @@ if (popupLinks.length > 0){
 				const image = popupLink.closest(".item").querySelector("img").src;
 				const description = popupLink.closest(".item").querySelector("p").innerHTML;
 				const price = popupLink.closest(".item").querySelector(".price").innerHTML;
-				e.target.closest('.tab_block').querySelector(".popups").innerHTML=`<div class="popup">
+				e.target.closest('.tab_block').querySelectorAll(".popups")[0].innerHTML=`<div class="popup">
 					<div class="popup_body">
 						<div class="popup_content">
 							<a href="#panel" class="close-popup"><i class="fas fa-times"></i></a>
@@ -293,7 +293,8 @@ if (popupLinks.length > 0){
 				popupOpen(document.querySelector('.popup'));
 				e.preventDefault();
 			}else{
-				popupOpen(e.target.closest('.popup'));
+				console.log(document.getElementById(popupLink.getAttribute('href').replace("#", '')));
+				popupOpen(document.getElementById(popupLink.getAttribute('href').replace("#", '')));
 				e.preventDefault();
 			}
 		});

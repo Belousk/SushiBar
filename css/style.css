@@ -455,6 +455,7 @@ footer{
   width: 100%;
   transition: all .3s ease;
   background-color: #353535;
+  z-index: 3;
 }
 .footer_content{
   display: flex;
@@ -536,7 +537,6 @@ footer{
 
 .hidden_ellipsis{
   visibility: hidden;
-  transform: translateY(50px);
   display: flex;
   flex-direction: column;
   color: #8c8c8c; 
@@ -547,7 +547,7 @@ footer{
   background-color: #343434;
   left: 0;
   transition: all 0.5s ease;
-  z-index: 10;
+  z-index: 0;
 }
 .hidden_ellipsis li{
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -557,7 +557,7 @@ footer{
 .visible{
   visibility: visible;
   transition: all 0.5s ease;
-  bottom: 125px;
+  bottom: 75px;
 }
 
 /**********************************Items***********************************/
@@ -691,7 +691,7 @@ footer{
   width: 10px;
   height: 10px;
   margin: 0 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
 }
 .slider .slick-active button{
@@ -828,6 +828,29 @@ td{
   padding: 10px;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.popup_banners .popup_content{
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+}
+.popup_banners .popup_content .promotion_images{
+  flex: 0 0 50%;
+}
+
+.popup_banners .popup_content .promotion_images img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.popup_banners .popup_content .promotion_description{
+  flex: 0 0 50%;
+}
+.post_scriptum{
+  color: #8c8c8c;
+  display: block;
+  margin-top: 20px;
 }
 .popup .information{
   width: 100%;
@@ -989,6 +1012,9 @@ td{
 @media screen and (max-width: 820px){
   .footer_content{
     flex-direction: column;
+  }
+  .special_delivery{
+    display: none;
   }
 }
 
