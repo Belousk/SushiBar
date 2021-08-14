@@ -93,7 +93,7 @@ input:focus{
   box-shadow: 0 0 0 2px rgba(253, 126, 20, 0.2);
 }
 .special_delivery{
-  min-width: 120px;
+  min-width: 180px;
   font-weight: bold;
   font-size: 18px;
 }
@@ -198,6 +198,7 @@ input:focus{
   border-radius: 20px;
   margin-right: 7.75%; 
   transition: all 0.5s ease 0.2s;
+  z-index: 100
 }
 .cart:hover a{
   color: white;
