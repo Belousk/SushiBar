@@ -99,10 +99,12 @@ for (let key of Object.keys(cart)){
 	input_render+=`<input type="hidden" name='productName' value='${productName}'>`;
 }
 localStorage.setItem('cart', JSON.stringify(cart));
-cart = JSON.parse(localStorage.getItem('cart'));
 
 
 document.querySelector('.cart-content__list').innerHTML = cart_render;
+
+
+
 if(document.querySelector('.popup_cart-content__list')) {
 		document.querySelector('.popup_cart-content__list').innerHTML = popup_render;
 		document.querySelector('#form_info').innerHTML = input_render;
@@ -165,7 +167,7 @@ document.onclick = function(e){
 	}
 	
 
-	
+	renderCart();
 
 
 }
@@ -327,30 +329,6 @@ if (popupLinks.length > 0){
 							<a href="#panel" class="close-popup"><i class="fas fa-times"></i></a>
 							<div class="popup_cart_description">
 								<ul class="popup_cart-content__list">
-									<!--
-									<li class="cart-content__item">
-										<article class="cart-content__product cart-product">
-											<img src="img/популярные/филадельфия классик.png" alt="" class="cart-product__img">
-											<div class="cart-product__text">
-												<h3 class="cart-product__title">Филадельфия классик</h3>
-												<div class="adjustment">
-													<div class="plus">
-														<a href="#" class="add_to_cart">
-														<img src="img/arrows/plus-solid.svg" alt=""></a>
-													</div>
-													<div class="product_quantity">
-														4
-													</div>
-													<div class="minus">
-														<a href="#" class="minus_from_cart"><img src="img/arrows/minus-solid.svg" alt=""></a>
-													</div>
-												</div>
-											</div>
-											<span class="cart-product__price">250</span>₽
-											<button class="cart-product__delete" aria-label="Удалить товар"></button>
-										</article>
-									</li>
-									-->
 								</ul>
 								<form action='index.php' method="post" id="form_info">
 								</form>
