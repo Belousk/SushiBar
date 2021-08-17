@@ -16,7 +16,11 @@ if(document.querySelector('.submit')){
 }
 if(!JSON.parse(localStorage.getItem('cart'))){
 	localStorage.setItem('cart', JSON.stringify({}));
-	let cart_render = '';
+}
+let cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('items_quantity').innerHTML = Object.keys(cart).length;
+
+let cart_render = '';
 	let popup_render = '';
 	let input_render = `<h3>Персональная информация</h3>
 	<div class="base-info">
@@ -102,7 +106,6 @@ if(!JSON.parse(localStorage.getItem('cart'))){
 		input_render+=`<input type="hidden" name='productName' value='${productName}'>`;
 	}
 
-	console.log(document.querySelector('.popup_cart-content__list').innerHTML);
 	document.querySelector('.cart-content__list').innerHTML = cart_render;
 
 	if(document.querySelector('.popup_cart-content__list')) {
@@ -111,9 +114,8 @@ if(!JSON.parse(localStorage.getItem('cart'))){
 	}
 	localStorage.setItem('cart', JSON.stringify(cart));
 	cart = JSON.parse(localStorage.getItem('cart'));
-}
-let cart = JSON.parse(localStorage.getItem('cart'));
-document.getElementById('items_quantity').innerHTML = Object.keys(cart).length;
+
+
 
 
 
@@ -154,7 +156,7 @@ document.onclick = function(e){
 		deleteFunction(e.target.dataset.id);
 		e.preventDefault();
 	}
-	
+	console.log(Object.keys(cart).length);
 	document.getElementById('items_quantity').innerHTML = Object.keys(cart).length;
 	items_sum = 0;
 	for (let key of Object.keys(cart)){
@@ -187,6 +189,7 @@ let plusFunction = function(id){
 			cart[id]++;
 		}
 	}
+
 	renderCart();
 }
 ////DRAWING CART
@@ -278,7 +281,6 @@ let renderCart = function(){
 		input_render+=`<input type="hidden" name='productName' value='${productName}'>`;
 	}
 
-	console.log(document.querySelector('.popup_cart-content__list').innerHTML);
 	document.querySelector('.cart-content__list').innerHTML = cart_render;
 
 	if(document.querySelector('.popup_cart-content__list')) {
