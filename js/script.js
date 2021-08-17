@@ -55,7 +55,7 @@ let cart_render = '';
 
 
 for (let key of Object.keys(cart)){
-	let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').src;
+	let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').dataset.src;
 	let productName = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('h3').innerHTML;
 	let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
 	///let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
@@ -233,7 +233,7 @@ let renderCart = function(){
 									`; 
 
 	for (let key of Object.keys(cart)){
-		let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').src;
+		let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').dataset.src;
 		let productName = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('h3').innerHTML;
 		let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
 		///let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
