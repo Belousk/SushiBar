@@ -13,16 +13,16 @@ if ($_POST['act'] == 'order') {
     $quantityOfPeople = ($_POST['quantity_of_people']);
     $addres = ($_POST['addres']);
     $home = ($_POST['home']);
-    $productName = ($_POST['productName']);
+    $productName = implode(', ', $_POST['productName']);;
 
 //Собираем в массив то, что будет передаваться боту
     $arr = array(
         'Имя:' => $name,
         'Телефон:' => $phone,
-        'Кол-во палочек(пар):' => $quantityOfPeople,
+        'Кол-во наборов:' => $quantityOfPeople,
         'Адрес:' => $addres,
         'Дом:' => $home,
-        'Нзвания продуктов:' => $productName
+        'Названия продуктов:' => $productName
     );
 
 //Настраиваем внешний вид сообщения в телеграме
@@ -33,9 +33,9 @@ if ($_POST['act'] == 'order') {
 //Передаем данные боту
     $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
 
-//Выводим сообщение об успешной отправке
 
-//А здесь сообщение об ошибке при отправ
 }
 
+$new_url = '../index.html';
+header('Location: '.$new_url);
 ?>

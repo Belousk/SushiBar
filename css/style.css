@@ -217,7 +217,7 @@ input:focus{
   border-radius: 10px;
 }
 .cart:hover .cart_description{
-  z-index: 3;
+  z-index: 20;
   opacity: 1;
   visibility: visible;
   transform: translateY(0px);

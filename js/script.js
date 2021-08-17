@@ -7,7 +7,11 @@ var lazyLoadInstance = new LazyLoad({
 
 /************************************CART****************************************************/
 
-
+if(document.querySelector('.submit')){
+	document.querySelector('.submit').onclick = function(){
+		localStorage.setItem('cart', JSON.stringify({}));
+	};
+}
 if(!JSON.parse(localStorage.getItem('cart'))){
 	localStorage.setItem('cart', JSON.stringify({}));
 }
@@ -48,6 +52,7 @@ let cart_render = '';
 									<input type="hidden" name="act" value="order">
 									<input type="submit" value="Оформить"> 
 									`; 
+
 
 for (let key of Object.keys(cart)){
 	let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').src;
@@ -224,7 +229,7 @@ let renderCart = function(){
 										</div>
 									</div>
 									<input type="hidden" name="act" value="order">
-									<input type="submit" value="Оформить"> 
+									<input type="submit" class="submit" value="Оформить"> 
 									`; 
 
 	for (let key of Object.keys(cart)){
@@ -330,7 +335,7 @@ if (popupLinks.length > 0){
 							<div class="popup_cart_description">
 								<ul class="popup_cart-content__list">
 								</ul>
-								<form action='index.php' method="post" id="form_info">
+								<form action='php/index.php' method="post" id="form_info">
 								</form>
 								<div class="popup_cart_sum">
 									Сумма заказа: <span id='popup_items_end_price'>0</span>
