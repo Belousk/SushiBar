@@ -1,11 +1,13 @@
 
 window.addEventListener('scroll', mySticky);
 var lazyLoadInstance = new LazyLoad({
-  // Your custom settings go here
+  // Your custom settings go here)
 });
 
 
+
 /************************************CART****************************************************/
+
 
 if(document.querySelector('.submit')){
 	document.querySelector('.submit').onclick = function(){
@@ -14,106 +16,108 @@ if(document.querySelector('.submit')){
 }
 if(!JSON.parse(localStorage.getItem('cart'))){
 	localStorage.setItem('cart', JSON.stringify({}));
+	let cart_render = '';
+	let popup_render = '';
+	let input_render = `<h3>Персональная информация</h3>
+	<div class="base-info">
+		<div class="form__name">
+			<p>Имя:</p>	
+			<input type="text" value="" name='name' placeholder="Name">
+		</div>
+		<div class="form__phone">
+			<p>Телефон:</p>
+			<input type="tel" value="" name='phone' placeholder="+7 (9_ _) _ _ _ - _ _ - _ _">
+		</div>
+		<div class="quantity_of_people">
+			<p>Кол-во наборов:</p>
+			<input type="number" value="" width='50px' name='quantity_of_people' placeholder="">
+		</div>
+	</div>
+	<h3>Доставка</h3>
+	<div class="delivery">
+		<div class="form__addres">
+			<p>Улица:</p>
+			<input type="text" value="" name='addres' placeholder="Адрес">
+		</div>
+		<div class="form__home">
+			<p>Дом:</p>
+			<input type="text" value="" name='home'>
+		</div>
+		<div class="form__frame">
+			<p>Строение/корпус:</p>
+			<input type="text" value="" name='frame' placeholder="">
+		</div>
+	</div>
+	<input type="hidden" name="act" value="order">
+	<input type="submit" class="submit" value="Оформить"> 
+	`; 
+
+	for (let key of Object.keys(cart)){
+		let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').dataset.src;
+		let productName = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('h3').innerHTML;
+		let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
+		///let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
+		cart_render+=`<li class="cart-content__item">
+		<article class="cart-content__product cart-product">
+			<img src="${productImg}" alt="" class="cart-product__img">
+			<div class="cart-product__text">
+				<h3 class="cart-product__title">${productName}</h3>
+				<div class="adjustment">
+					<div class="plus">
+						<a href="#" class="add_to_cart_small" data-idk="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
+					</div>
+					<div class="product_quantity">
+						${cart[key]}
+					</div>
+					<div class="minus">
+						<a href="#" class="minus_from_cart"  data-idk="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
+					</div>
+				</div>
+			</div>
+			<span class="cart-product__price">${productPrice}₽</span>
+			<button class="cart-product__delete" aria-label="Удалить товар"></button>
+		</article>
+		</li>\n`;
+		popup_render+=`<li class="cart-content__item">
+	<article class="cart-content__product cart-product">
+		<img src="${productImg}" alt="" class="cart-product__img">
+		<div class="cart-product__text">
+			<h3 class="cart-product__title">${productName}</h3>
+			<div class="adjustment">
+				<div class="plus">
+					<a href="#" class="add_to_popup_cart" data-idl="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
+				</div>
+				<div class="product_quantity">
+					${cart[key]}
+				</div>
+				<div class="minus">
+					<a href="#" class="minus_from_popup_cart"  data-idl="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<span class="cart-product__price">${productPrice}₽</span>
+		<button class="cart-product__delete" aria-label="Удалить товар"></button>
+	</article>
+	</li>\n`;
+		input_render+=`<input type="hidden" name='productName' value='${productName}'>`;
+	}
+
+	console.log(document.querySelector('.popup_cart-content__list').innerHTML);
+	document.querySelector('.cart-content__list').innerHTML = cart_render;
+
+	if(document.querySelector('.popup_cart-content__list')) {
+		document.querySelector('.popup_cart-content__list').innerHTML = popup_render;
+		document.querySelector('#form_info').innerHTML = input_render;
+	}
+	localStorage.setItem('cart', JSON.stringify(cart));
+	cart = JSON.parse(localStorage.getItem('cart'));
 }
 let cart = JSON.parse(localStorage.getItem('cart'));
 document.getElementById('items_quantity').innerHTML = Object.keys(cart).length;
-let cart_render = '';
-	let popup_render = '';
-	let input_render = `<h3>Персональная информация</h3>
-									<div class="base-info">
-										<div class="form__name">
-											<p>Имя:</p>	
-											<input type="text" value="" name='name' placeholder="Name">
-										</div>
-										<div class="form__phone">
-											<p>Телефон:</p>
-											<input type="tel" value="" name='phone' placeholder="+7 (9_ _) _ _ _ - _ _ - _ _">
-										</div>
-										<div class="quantity_of_people">
-											<p>Кол-во наборов:</p>
-											<input type="number" value="" width='50px' name='quantity_of_people' placeholder="">
-										</div>
-									</div>
-									<h3>Доставка</h3>
-									<div class="delivery">
-										<div class="form__addres">
-											<p>Улица:</p>
-											<input type="text" value="" name='addres' placeholder="Адрес">
-										</div>
-										<div class="form__home">
-											<p>Дом:</p>
-											<input type="text" value="" name='home'>
-										</div>
-										<div class="form__frame">
-											<p>Строение/корпус:</p>
-											<input type="text" value="" name='frame' placeholder="">
-										</div>
-									</div>
-									<input type="hidden" name="act" value="order">
-									<input type="submit" value="Оформить"> 
-									`; 
-
-
-for (let key of Object.keys(cart)){
-	let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').dataset.src;
-	let productName = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('h3').innerHTML;
-	let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
-	///let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
-	cart_render+=`<li class="cart-content__item">
-				<article class="cart-content__product cart-product">
-					<img src="${productImg}" alt="" class="cart-product__img">
-					<div class="cart-product__text">
-						<h3 class="cart-product__title">${productName}</h3>
-						<div class="adjustment">
-							<div class="plus">
-								<a href="#" class="add_to_cart_small" data-idk="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
-							</div>
-							<div class="product_quantity">
-								${cart[key]}
-							</div>
-							<div class="minus">
-								<a href="#" class="minus_from_cart"  data-idk="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
-							</div>
-						</div>
-					</div>
-					<span class="cart-product__price">${productPrice}₽</span>
-					<button class="cart-product__delete" aria-label="Удалить товар"></button>
-				</article>
-			</li>\n`;
-	popup_render+=`<li class="cart-content__item">
-				<article class="cart-content__product cart-product">
-					<img src="${productImg}" alt="" class="cart-product__img">
-					<div class="cart-product__text">
-						<h3 class="cart-product__title">${productName}</h3>
-						<div class="adjustment">
-							<div class="plus">
-								<a href="#" class="add_to_popup_cart" data-idl="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
-							</div>
-							<div class="product_quantity">
-								${cart[key]}
-							</div>
-							<div class="minus">
-								<a href="#" class="minus_from_popup_cart"  data-idl="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
-							</div>
-						</div>
-					</div>
-					<span class="cart-product__price">${productPrice}₽</span>
-					<button class="cart-product__delete" aria-label="Удалить товар"></button>
-				</article>
-			</li>\n`;
-	input_render+=`<input type="hidden" name='productName' value='${productName}'>`;
-}
-localStorage.setItem('cart', JSON.stringify(cart));
-
-
-document.querySelector('.cart-content__list').innerHTML = cart_render;
 
 
 
-if(document.querySelector('.popup_cart-content__list')) {
-		document.querySelector('.popup_cart-content__list').innerHTML = popup_render;
-		document.querySelector('#form_info').innerHTML = input_render;
-}
+
 
 document.onclick = function(e){
 	if (e.target.classList.contains('add_to_cart')){
@@ -130,12 +134,6 @@ document.onclick = function(e){
 		e.preventDefault();
 	}
 	
-
-
-
-
-
-
 
 	if (e.target.classList.contains('minus_from_cart')){
 		minusFunction(e.target.dataset.idk);	
@@ -165,13 +163,11 @@ document.onclick = function(e){
 		items_sum += item_price * item_count;	
 	}
 
-	//let item_price = document.querySelector('[data-id="'+e.target.dataset.id+'"]').closest('.price').querySelector('.item_price')
 	document.querySelector('#items_end_price').innerHTML = items_sum + '₽';
 	if(document.querySelector('.popup_cart')){
 		document.querySelector('#popup_items_end_price').innerHTML = items_sum + '₽';
 	}
 	
-
 	renderCart();
 
 
@@ -199,38 +195,38 @@ let renderCart = function(){
 	let cart_render = '';
 	let popup_render = '';
 	let input_render = `<h3>Персональная информация</h3>
-									<div class="base-info">
-										<div class="form__name">
-											<p>Имя:</p>	
-											<input type="text" value="" name='name' placeholder="Name">
-										</div>
-										<div class="form__phone">
-											<p>Телефон:</p>
-											<input type="tel" value="" name='phone' placeholder="+7 (9_ _) _ _ _ - _ _ - _ _">
-										</div>
-										<div class="quantity_of_people">
-											<p>Кол-во наборов:</p>
-											<input type="number" value="" width='50px' name='quantity_of_people' placeholder="">
-										</div>
-									</div>
-									<h3>Доставка</h3>
-									<div class="delivery">
-										<div class="form__addres">
-											<p>Улица:</p>
-											<input type="text" value="" name='addres' placeholder="Адрес">
-										</div>
-										<div class="form__home">
-											<p>Дом:</p>
-											<input type="text" value="" name='home'>
-										</div>
-										<div class="form__frame">
-											<p>Строение/корпус:</p>
-											<input type="text" value="" name='frame' placeholder="">
-										</div>
-									</div>
-									<input type="hidden" name="act" value="order">
-									<input type="submit" class="submit" value="Оформить"> 
-									`; 
+	<div class="base-info">
+		<div class="form__name">
+			<p>Имя:</p>	
+			<input type="text" value="" name='name' placeholder="Name">
+		</div>
+		<div class="form__phone">
+			<p>Телефон:</p>
+			<input type="tel" value="" name='phone' placeholder="+7 (9_ _) _ _ _ - _ _ - _ _">
+		</div>
+		<div class="quantity_of_people">
+			<p>Кол-во наборов:</p>
+			<input type="number" value="" width='50px' name='quantity_of_people' placeholder="">
+		</div>
+	</div>
+	<h3>Доставка</h3>
+	<div class="delivery">
+		<div class="form__addres">
+			<p>Улица:</p>
+			<input type="text" value="" name='addres' placeholder="Адрес">
+		</div>
+		<div class="form__home">
+			<p>Дом:</p>
+			<input type="text" value="" name='home'>
+		</div>
+		<div class="form__frame">
+			<p>Строение/корпус:</p>
+			<input type="text" value="" name='frame' placeholder="">
+		</div>
+	</div>
+	<input type="hidden" name="act" value="order">
+	<input type="submit" class="submit" value="Оформить"> 
+	`; 
 
 	for (let key of Object.keys(cart)){
 		let productImg = document.querySelector('[data-id="'+key+'"]').closest('.item').querySelector('img').dataset.src;
@@ -238,53 +234,56 @@ let renderCart = function(){
 		let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
 		///let productPrice = document.querySelector('[data-id="'+key+'"]').closest('.price').querySelector('.item_price').innerHTML;
 		cart_render+=`<li class="cart-content__item">
-					<article class="cart-content__product cart-product">
-						<img src="${productImg}" alt="" class="cart-product__img">
-						<div class="cart-product__text">
-							<h3 class="cart-product__title">${productName}</h3>
-							<div class="adjustment">
-								<div class="plus">
-									<a href="#" class="add_to_cart_small" data-idk="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
-								</div>
-								<div class="product_quantity">
-									${cart[key]}
-								</div>
-								<div class="minus">
-									<a href="#" class="minus_from_cart"  data-idk="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
-								</div>
-							</div>
-						</div>
-						<span class="cart-product__price">${productPrice}₽</span>
-						<button class="cart-product__delete" aria-label="Удалить товар"></button>
-					</article>
-				</li>\n`;
+		<article class="cart-content__product cart-product">
+			<img src="${productImg}" alt="" class="cart-product__img">
+			<div class="cart-product__text">
+				<h3 class="cart-product__title">${productName}</h3>
+				<div class="adjustment">
+					<div class="plus">
+						<a href="#" class="add_to_cart_small" data-idk="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
+					</div>
+					<div class="product_quantity">
+						${cart[key]}
+					</div>
+					<div class="minus">
+						<a href="#" class="minus_from_cart"  data-idk="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
+					</div>
+				</div>
+			</div>
+			<span class="cart-product__price">${productPrice}₽</span>
+			<button class="cart-product__delete" aria-label="Удалить товар"></button>
+		</article>
+		</li>\n`;
 		popup_render+=`<li class="cart-content__item">
-					<article class="cart-content__product cart-product">
-						<img src="${productImg}" alt="" class="cart-product__img">
-						<div class="cart-product__text">
-							<h3 class="cart-product__title">${productName}</h3>
-							<div class="adjustment">
-								<div class="plus">
-									<a href="#" class="add_to_popup_cart" data-idl="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
-								</div>
-								<div class="product_quantity">
-									${cart[key]}
-								</div>
-								<div class="minus">
-									<a href="#" class="minus_from_popup_cart"  data-idl="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
-								</div>
-							</div>
-						</div>
-						<span class="cart-product__price">${productPrice}₽</span>
-						<button class="cart-product__delete" aria-label="Удалить товар"></button>
-					</article>
-				</li>\n`;
+	<article class="cart-content__product cart-product">
+		<img src="${productImg}" alt="" class="cart-product__img">
+		<div class="cart-product__text">
+			<h3 class="cart-product__title">${productName}</h3>
+			<div class="adjustment">
+				<div class="plus">
+					<a href="#" class="add_to_popup_cart" data-idl="${key}"><img src="img/arrows/plus-solid.svg" alt=""></a>
+				</div>
+				<div class="product_quantity">
+					${cart[key]}
+				</div>
+				<div class="minus">
+					<a href="#" class="minus_from_popup_cart"  data-idl="${key}"><img src="img/arrows/minus-solid.svg" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<span class="cart-product__price">${productPrice}₽</span>
+		<button class="cart-product__delete" aria-label="Удалить товар"></button>
+	</article>
+	</li>\n`;
 		input_render+=`<input type="hidden" name='productName' value='${productName}'>`;
 	}
+
+	console.log(document.querySelector('.popup_cart-content__list').innerHTML);
 	document.querySelector('.cart-content__list').innerHTML = cart_render;
+
 	if(document.querySelector('.popup_cart-content__list')) {
-			document.querySelector('.popup_cart-content__list').innerHTML = popup_render;
-			document.querySelector('#form_info').innerHTML = input_render;
+		document.querySelector('.popup_cart-content__list').innerHTML = popup_render;
+		document.querySelector('#form_info').innerHTML = input_render;
 	}
 	localStorage.setItem('cart', JSON.stringify(cart));
 	cart = JSON.parse(localStorage.getItem('cart'));
@@ -326,7 +325,6 @@ if (popupLinks.length > 0){
 	for (let index = 0; index < popupLinks.length; index++) {
 		let popupLink = popupLinks[index];
 		popupLink.addEventListener("click", function(e){
-			console.log(document.querySelector('.block').querySelectorAll('.popups')[0].innerHTML);
 			if (popupLink.getAttribute('href').replace("#", '')=='popup_cart'){
 				document.querySelector('.block .popups').innerHTML=`<div class="popup popup_cart" id='popup_cart'>
 					<div class="popup_body">
@@ -344,7 +342,11 @@ if (popupLinks.length > 0){
 						</div>
 					</div>
 				</div>`;
+
+				
+				console.log(document.querySelector('.block .popups').innerHTML);
 				renderCart();
+				console.log(document.querySelector('.block .popups').innerHTML);
 				popupOpen(document.querySelector('.block .popups .popup'));
 				e.preventDefault();
 			}else if(popupLink.getAttribute('href').replace("#", '')==''){
@@ -423,7 +425,7 @@ function bodyLock(){
 function popupClose(popupActive, doUnlock = true){
 	if (unlock){
 		popupActive.classList.remove('open');
-		document.querySelector(".popups").innerHTML=``;
+		document.querySelector(".block .popups").innerHTML=``;
 		if(doUnlock){
 			bodyUnlock();
 		}
